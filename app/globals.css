@@ -346,6 +346,7 @@ width: 80%;
 
 .service-header {
   margin-bottom: 40px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -449,8 +450,16 @@ width: 80%;
   }
 
   .service-card {
-    max-width: 90%;
+    max-width: 95%;
     margin-bottom: 20px;
   }
+.service-header {
+  padding: 10px 20px;
+}
+
+
+.service-header .intro-text{
+  font-size: 14px;
+}
 }
 
