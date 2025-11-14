@@ -123,60 +123,56 @@ body {
 /* ========== RESPONSIVE NAVBAR ========== */
 
 @media (max-width: 1024px) {
+
+  .navbar-root {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 1000;
+  }
+  /* MODIFIÉ: Masque les liens desktop et les icônes de téléphone/calendrier */
   .navbar-links,
-  .navbar-btn-desktop {
+  .navbar-mobile-btns {
     display: none !important;
   }
 
-  .navbar-mobile-btns {
-    display: flex !important;
-    gap: 10px;
-    align-items: center;
-  }
-
-  .navbar-mobile-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #9333EA;
-    color: white;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-    text-decoration: none;
-  }
-
-  .navbar-burger {
+  /* AJOUTÉ/MODIFIÉ: Force l'affichage du bouton RDV desktop sur mobile */
+  .navbar-btn-desktop {
     display: block !important;
   }
-
-  .navbar-container {
-    width: 95%;
+  
+  /* AJOUTÉ/MODIFIÉ: Style du bouton RDV pour être compact comme dans l'image */
+  .navbar-rdv-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 5px;
+    margin-left: 60px;
   }
-}
 
-/* Mobile menu open state */
-.navbar-container.menu-open .navbar-links {
-  display: flex !important;
-  flex-direction: column;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: #242424;
-  border-radius: 0 0 30px 30px;
-  padding: 20px 0;
-}
+  /* MODIFIÉ: Affiche et stylise l'icône du menu burger */
+  .navbar-burger {
+    display: block !important;
+    font-size: 30px;
+    color: #101010; 
+    margin-left: 15px;
+  }
 
-.navbar-container.menu-open .navbar-links a {
-  padding: 15px 5%;
-  color: white;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+  /* MODIFIÉ: Le container prend toute la largeur sur mobile et retire les arrondis */
+  .navbar-container {
+    width: 100%;
+    border-radius: 0; 
+    max-width: none;
+    padding: 10px 20px; 
+    box-shadow: 0;
 
-.navbar-container.menu-open .navbar-links a:last-child {
-  border-bottom: none;
+  }
+  
+  /* AJOUTÉ: Ajustement pour l'alignement du logo sur mobile */
+  .navbar-logo-img {
+      max-width: 60px !important;
+  }
 }
 
 /* ===============================
@@ -196,7 +192,7 @@ body {
   align-items: center;
   min-height: 85vh;
   width: 97%;
-  background-image: url('public/img/herobackround.jpg');
+  background-image: url('/img/herobackround.jpg');
   background-color: #1a1a1a;
   background-size: cover;
   background-position: center;
@@ -279,21 +275,31 @@ body {
 /* Responsive HERO */
 @media (max-width: 768px) {
   .hero-container {
+    margin-top : 100px;
     min-height: 50vh;
-    padding: 30px 15px;
+    padding: 40px 15px;
+      box-shadow: none;
+
+  }
+
+  .content-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 60px;
+  padding-top : 0px;
   }
 
   .content {
-    width: 100%;
+    width: 95%;
   }
 
   .hero-container h1 {
-    font-size: 2em;
+    font-size: 1.8em;
     width: 100%;
   }
 
   .hero-container p {
-    font-size: 1em;
+    font-size: 0.9em;
     width: 100%;
   }
 
@@ -304,7 +310,13 @@ body {
   }
 
   .buttons button {
-    margin: 5px 0;
-    width: 100%;
+    margin-bottom: 20px;
+    width: 60%;
   }
+
+  .promo-tag {
+  background-color: #9333ea;
+  padding: 4px 10px;
+
+}
 }
