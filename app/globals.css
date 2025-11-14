@@ -22,7 +22,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #ffffff;
     --foreground: #ededed;
   }
 }
@@ -165,7 +165,7 @@ body {
     border-radius: 0; 
     max-width: none;
     padding: 10px 20px; 
-    box-shadow: 0;
+    box-shadow: none;
 
   }
   
@@ -275,10 +275,11 @@ body {
 /* Responsive HERO */
 @media (max-width: 768px) {
   .hero-container {
-    margin-top : 100px;
+    margin-top : 75px;
     min-height: 50vh;
-    padding: 40px 15px;
-      box-shadow: none;
+    padding: 30px 15px;
+    box-shadow: none;
+    width: 90%;
 
   }
 
