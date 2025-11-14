@@ -24,7 +24,7 @@ export default function Hero() {
 
             <div className="buttons">
               <button className="button-primary">
-                Prendre RDV
+                PRENEZ RENDEZ-VOUS
               </button>
             </div>
           </div>
