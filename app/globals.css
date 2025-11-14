@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
+/* ===== Thème global ===== */
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+/* Police globale */
+html,
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
 @theme inline {
@@ -22,5 +30,281 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===============================
+      NAVBAR CUSTOM
+=============================== */
+
+.navbar-root {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 40px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 30px;
+  padding: 10px 5%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  min-height: 80px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.navbar-logo-img {
+  max-width: 80px !important;
+}
+
+/* Desktop nav links */
+.navbar-links {
+  display: flex;
+  gap: 30px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.navbar-links a {
+  color: #101010;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.navbar-links a:hover {
+  color: #A0A0A0;
+}
+
+/* Desktop RDV button */
+.navbar-btn-desktop {
+  display: block;
+}
+
+.navbar-rdv-btn {
+  background-color: #9333EA;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.navbar-rdv-btn:hover {
+  background-color: #7E22CE;
+}
+
+/* Mobile buttons hidden by default */
+.navbar-mobile-btns {
+  display: none;
+}
+
+/* Burger menu hidden by default */
+.navbar-burger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 24px;
+  margin-left: 20px;
+}
+
+/* ========== RESPONSIVE NAVBAR ========== */
+
+@media (max-width: 1024px) {
+  .navbar-links,
+  .navbar-btn-desktop {
+    display: none !important;
+  }
+
+  .navbar-mobile-btns {
+    display: flex !important;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .navbar-mobile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9333EA;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  .navbar-burger {
+    display: block !important;
+  }
+
+  .navbar-container {
+    width: 95%;
+  }
+}
+
+/* Mobile menu open state */
+.navbar-container.menu-open .navbar-links {
+  display: flex !important;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #242424;
+  border-radius: 0 0 30px 30px;
+  padding: 20px 0;
+}
+
+.navbar-container.menu-open .navbar-links a {
+  padding: 15px 5%;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-container.menu-open .navbar-links a:last-child {
+  border-bottom: none;
+}
+
+/* ===============================
+      HERO SECTION
+=============================== */
+
+.hero-section {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  width: 97%;
+  background-image: url('public/img/herobackround.jpg');
+  background-color: #1a1a1a;
+  background-size: cover;
+  background-position: center;
+  padding: 40px 40px;
+  margin: 0;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+  padding-bottom: 100px;
+}
+
+.content {
+  width: 85%;
+  max-width: 1300px;
+}
+
+.promo-tag {
+  background-color: #9333ea;
+  padding: 4px 30px;
+  border-radius: 20px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  display: inline-block;
+  font-size: 0.8em;
+}
+
+.hero-container h1 {
+  font-size: 2.8em;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: white;
+  width: 70%;
+}
+
+.hero-container p {
+  margin-bottom: 30px;
+  font-size: 0.9em;
+  color: #ccc;
+  font-weight: 300;
+  width: 65%;
+}
+
+.buttons button {
+  border: none;
+  padding: 12px 45px;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.1s;
+  margin-right: 15px;
+}
+
+.buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-primary {
+  background-color: #9333ea;
+  color: white;
+}
+
+.button-secondary {
+  background-color: white;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+/* Responsive HERO */
+@media (max-width: 768px) {
+  .hero-container {
+    min-height: 50vh;
+    padding: 30px 15px;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .hero-container h1 {
+    font-size: 2em;
+    width: 100%;
+  }
+
+  .hero-container p {
+    font-size: 1em;
+    width: 100%;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .buttons button {
+    margin: 5px 0;
+    width: 100%;
+  }
 }
