@@ -279,7 +279,7 @@ body {
     min-height: 50vh;
     padding: 30px 15px;
     box-shadow: none;
-    width: 90%;
+    width: 97%;
 
   }
 
@@ -291,7 +291,7 @@ body {
   }
 
   .content {
-    width: 95%;
+    width: 100%;
   }
 
   .hero-container h1 {
