@@ -240,7 +240,7 @@ body {
 .hero-container p {
   margin-bottom: 30px;
   font-size: 0.9em;
-  color: #eaeaea;
+  color: #e1e1e1;
   font-weight: 400;
   width: 65%;
   line-height: 180%;
@@ -278,7 +278,7 @@ body {
   .hero-container {
     margin-top : 75px;
     min-height: 50vh;
-    padding: 30px 15px;
+    padding: 30px 20px;
     box-shadow: none;
     width: 95%;
 
@@ -287,7 +287,7 @@ body {
   .content-wrapper {
   display: flex;
   justify-content: center;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
   padding-top : 0px;
   }
 
@@ -298,31 +298,31 @@ body {
 
   .hero-container h1 {
     font-size: 2em;
-    width: 93%;
+    width: 100%;
     line-height: 130%;
   }
 
   .hero-container p {
     padding-top: 10px;
-    font-size: 0.9em;
-    width: 90%;
+    font-size: 0.8em;
+    width: 100%;
+
   }
 
   .buttons {
     display: flex;
     flex-direction: column;
     border-radius: 50px;
-    font-weight: 700;
     font-size: 17px;
   }
 
   .buttons button {
-    margin-bottom: 20px;
 width: 80%;
+    font-weight: 600;
+
   }
 
   .promo-tag {
-        max-width: 93%;
 
   font-weight: 550;
   background-color: #9333ea;
