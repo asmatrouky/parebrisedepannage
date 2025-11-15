@@ -3,7 +3,7 @@
 export default function PrendreRdv() {
   return (
     <section className="rdv-container">
-      <div className="tag-rapide">Rendez-vous rapide</div>
+      <div className="tag">Rendez-vous rapide</div>
 
       <h2 className="title">Prendre rendez-vous</h2>
 

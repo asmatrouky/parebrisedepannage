@@ -5,7 +5,7 @@ export default function NosServices() {
     <section className="service-section">
       <div className="service-header">
         <div className="tag">Intervention tous vitrages auto</div>
-        <h2>Nos services</h2>
+        <h2 className="sectiontitle">Nos services</h2>
         <p className="intro-text">
           Notre équipe prend en charge tous types de vitrage automobile, qu&apos;il
           s&apos;agisse de remplacement ou de réparation pare-brise.

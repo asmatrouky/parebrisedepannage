@@ -205,6 +205,26 @@ body {
   box-sizing: border-box;
 }
 
+.depannage-hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  width: 97%;
+  background-image: url('/img/remorquage.jpg');
+  background-color: #1a1a1a;
+  background-size: cover;
+  background-position: center;
+  padding: 40px 40px;
+  margin: 0;
+  border-radius: 28px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 .content-wrapper {
   display: flex;
   justify-content: center;
@@ -363,12 +383,24 @@ width: 80%;
   margin-bottom: 10px;
 }
 
-.service-header h2 {
+.tag {
+  display: inline-block;
+  background-color: #9333ea;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.sectiontitle {
   font-size: 40px;
   font-weight: 600;
   color: #333;
   margin-top: 10px;
   margin-bottom: 0;
+  text-align: center;
 }
 
 .service-header .intro-text {
@@ -610,4 +642,224 @@ width: 80%;
   .description {
     font-size: 14px;
   }
+}
+/* ===============================
+      SECTION FAQ
+=============================== */
+
+.intro-text {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.faq-section {
+    /* Le padding vertical est souvent géré par la section parente ou le main content */
+    padding-top: 60px; 
+    padding-bottom: 80px;
+    background-color: #ffffff; 
+}
+
+/* Le service-header est réutilisé pour l'entête de la FAQ */
+
+.faq-container {
+  /* Centre le container et définit la largeur maximale pour l'accordéon */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.faq-item {
+  /* Conteneur de l'élément de la FAQ (Question + Réponse) */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  overflow: hidden; /* Important pour l'animation de bascule */
+}
+
+.faq-header {
+  /* Tête de la question (Zone cliquable) */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  cursor: pointer;
+}
+
+.faq-question {
+  /* Style du texte de la question */
+  font-size: 16px;
+  font-weight: 600;
+  color: #101010;
+  margin: 0;
+}
+
+.faq-icon-wrapper {
+  /* Conteneur de l'icône */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.faq-icon {
+  /* Style de l'icône (+ ou -) */
+  font-size: 24px;
+  font-weight: 400;
+  color: #101010;
+}
+
+/* Style spécifique pour la question ouverte (comme dans l'image) */
+.faq-item.open {
+  background-color: #F4F4F4; /* Fond clair pour la section ouverte */
+}
+
+/* La question ouverte garde un fond blanc pour le titre */
+.faq-item.open .faq-header {
+  background-color: #FFFFFF;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Corps de la réponse */
+.faq-answer-wrapper {
+  /* Animation de bascule */
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
+  background-color: #F4F4F4;
+}
+
+.faq-answer {
+  /* Texte de la réponse */
+  font-size: 15px;
+  line-height: 1.6;
+  color: #404040;
+  padding: 15px 25px 20px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 32px;
+  }
+  .description {
+    font-size: 14px;
+  }
+
+  .intro-text {
+
+  text-align: center;
+}
+}
+
+/* ===============================
+      SECTION PRESENTATION
+=============================== */
+
+.presentation-section {
+    padding: 10px 20px 10px 20px;
+    background-color: var(--background);
+}
+
+.presentation-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Image --- */
+.presentation-image-container {
+    flex: 2;
+    max-width: 35%;
+    /* MODIFIÉ: S'assure d'une bordure très arrondie comme sur l'image */
+    border-radius: 20px; 
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.presentation-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Contenu --- */
+.presentation-content {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px 0;
+}
+
+.presentation-tag {
+    /* MODIFIÉ: Ajuste le style du tag */
+    background-color: #4CAF50 !important; /* Vert */
+    color: white !important;
+    padding: 6px 18px !important; /* Padding ajusté */
+    font-size: 14px !important;
+    border-radius: 6px !important; /* Légèrement moins arrondi */
+    font-weight: 600 !important;
+    margin-bottom: 20px;
+    /* FIN MODIFIÉ */
+}
+
+.presentation-title {
+    line-height: 1.15;
+    margin: 0 0 20px 0;
+  font-size: 40px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.presentation-description {
+    /* Style par défaut conservé pour le paragraphe */
+    font-size: 14px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 30px;
+    width: 90%;
+    margin-top: 25px;
+    margin-bottom: 35px;
+
+}
+
+
+
+
+
+
+/* Responsive pour mobile */
+@media (max-width: 900px) {
+    .presentation-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 10px;
+    }
+
+    .presentation-image-container,
+    .presentation-content {
+        max-width: 100%;
+        flex: none;
+    }
+    
+    .presentation-image-container {
+        /* L'image sur mobile semble prendre toute la largeur */
+        width: 100%;
+    }
+
+    .presentation-title {
+        font-size: 30px;
+    }
+
+
 }

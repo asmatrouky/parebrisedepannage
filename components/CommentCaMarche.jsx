@@ -5,7 +5,7 @@ export default function CommentCaMarche() {
     <section className="how-it-works-section">
       <div className="service-header">
         <div className="tag">Intervention tous vitrages auto</div>
-        <h2>Comment ça marche ?</h2>
+        <h2 className="sectiontitle">Comment ça marche ?</h2>
         <p className="intro-text">
           Avec Pare-Brise Éco, remplacer votre pare-brise devient simple, rapide
           et rémunéré. Bénéficiez jusqu&apos;à 500€ avec un service écologique,

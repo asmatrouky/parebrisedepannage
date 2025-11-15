@@ -34,7 +34,7 @@ export default function Navbar() {
         {/* Navigation Desktop */}
         <nav className="navbar-links">
           <Link href="/offres">PARE-BRISE</Link>
-          <Link href="/depannage">REMORQUAGE</Link>
+            <Link href="/depannage">REMORQUAGE</Link>
           <Link href="/fonctionnement#faq">F.A.Q</Link>
           <Link href="/contact">NOUS CONTACTER</Link>
         </nav>
