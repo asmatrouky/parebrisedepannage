@@ -2,29 +2,26 @@
 
 export default function DepannageHero() {
   return (
-    <section className="depannage-hero-section">
-      <div className="hero-container">
+    <section className="hero-section">
+      <div className="depannage-hero-container">
         <div className="content-wrapper">
           <div className="content">
             <div className="promo-tag">
-              Un pare-brise remplacé = Un cadeau offert
+              Dépannage et Remorquage professionnel
+
             </div>
 
             <h1>
-              Remplacement pare-brise avec reprise jusqu&apos;à 500€
+             Dépannage et Remorquage professionnel
             </h1>
 
             <p>
-              Faire changer son pare-brise ne devrait jamais être compliqué.
-              Ici, tout est pensé pour vous : un remplacement en 1 heure, sans
-              avance de frais, avec un service rapide et sans tracas. Et parce
-              qu’on aime faire mieux que les autres, un pare-brise changé =
-              un cadeau offert.
+              Panne ou accident ? Trouvez un professionnel du dépannage et du remorquage 24/7 dans toute la France. Intervention rapide et devis immédiat par téléphone ou par mail.
             </p>
 
             <div className="buttons">
               <button className="button-primary">
-                PRENEZ RENDEZ-VOUS
+                Appelez nous
               </button>
             </div>
           </div>
