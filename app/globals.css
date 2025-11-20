@@ -319,7 +319,7 @@ body {
 @media (max-width: 768px) {
   .hero-container {
     margin-top : 75px;
-    min-height: 65vh;
+    min-height: 60vh;
     padding: 70px 15px;
     box-shadow: none;
     width: 93%;
