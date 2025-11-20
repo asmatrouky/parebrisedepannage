@@ -19,7 +19,7 @@ export default function Hero() {
             </div>
 
             <h1>
-              Votre pare-brise cassé ? <br />On s’occupe de tout…
+              Pare-brise cassé ? <br />On s’occupe de tout…
             </h1>
 
             <p>
