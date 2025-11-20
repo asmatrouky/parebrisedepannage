@@ -14,7 +14,8 @@ export default function Home() {
       <NosServices />
 
       <CommentCaMarche />
-                        <Presentation />
+      
+      <Presentation />
 
       <PrendreRdv />
       <Faq />

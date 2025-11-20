@@ -1,6 +1,8 @@
+import Footer from '@/components/Footer';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import { Poppins } from 'next/font/google';
+import Script from 'next/script'; 
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -24,9 +26,19 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={poppins.className}>
+        <Script
+          src="/components/AppointmentFormComponent.js"
+          strategy="afterInteractive"
+        />
+
         <Navbar />
+
+        <appointment-form-component></appointment-form-component>
+
         <main>{children}</main>
+        <Footer />
       </body>
+      
     </html>
   );
 }

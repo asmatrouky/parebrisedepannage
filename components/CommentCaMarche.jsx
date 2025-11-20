@@ -1,69 +1,72 @@
-// components/CommentCaMarche.jsx
-
 export default function CommentCaMarche() {
   return (
     <section className="how-it-works-section">
       <div className="service-header">
-        <div className="tag">Intervention tous vitrages auto</div>
+        <div className="tag">Processus simple & rapide</div>
         <h2 className="sectiontitle">Comment ça marche ?</h2>
         <p className="intro-text">
-          Avec Pare-Brise Éco, remplacer votre pare-brise devient simple, rapide
-          et rémunéré. Bénéficiez jusqu&apos;à 500€ avec un service écologique,
-          sécurisé et sans avance de frais.
+          Une prise en charge fluide, pensée pour vous faire gagner du temps.
+          De la réservation à la restitution du véhicule, tout est conçu pour
+          être rapide, fiable et sans complication.
         </p>
       </div>
 
       <div className="steps-container">
+        
+        {/* Étape 1 */}
         <div className="step-card">
           <div className="step-image-container">
             <img
               src="/img/calendrier.png"
-              alt="Icône Calendrier"
+              alt="Prise de rendez-vous"
               className="step-image"
             />
           </div>
           <h3>
-            Prendre rendez-vous <span className="emoji">🗓️</span>
+            Réservez votre créneau <span className="emoji">🗓️</span>
           </h3>
           <p>
-            Planifiez votre rendez-vous en ligne ou par téléphone dans l&apos;un
-            de nos nombreux centres franchisés, proches de chez vous.
+            Choisissez l'heure et le centre qui vous conviennent. En quelques clics,
+            votre rendez-vous est confirmé.
           </p>
         </div>
 
+        {/* Étape 2 */}
         <div className="step-card">
           <div className="step-image-container">
             <img
               src="/img/parebrise.png"
-              alt="Icône Pare-brise"
+              alt="Remplacement du vitrage"
               className="step-image"
             />
           </div>
           <h3>
-            Changement du vitrage <span className="emoji">🚗</span>
+            Intervention du technicien <span className="emoji">🚗</span>
           </h3>
           <p>
-            Nos techniciens réalisent le remplacement du pare-brise avec un
-            vitrage certifié, installé rapidement et dans le respect des normes.
+            Nos spécialistes procèdent au remplacement du vitrage avec des matériaux
+            certifiés et une pose réalisée dans les règles de l’art.
           </p>
         </div>
 
+        {/* Étape 3 */}
         <div className="step-card">
           <div className="step-image-container">
             <img
               src="/img/cadeau.png"
-              alt="Icône Cadeau/Argent"
+              alt="Réception de votre avantage"
               className="step-image"
             />
           </div>
           <h3>
-            Réception de votre argent <span className="emoji">💰</span>
+            Bénéficiez de votre avantage <span className="emoji">💰</span>
           </h3>
           <p>
-            Après l&apos;intervention, recevez jusqu&apos;à 500€ pour la reprise
-            de votre ancien vitrage, sans avance de frais ni démarches complexes.
+            Une fois l’intervention terminée, vous recevez votre avantage financier
+            lié à la reprise de votre ancien vitrage – sans avance de frais.
           </p>
         </div>
+
       </div>
     </section>
   );

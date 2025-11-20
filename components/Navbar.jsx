@@ -11,13 +11,17 @@ export default function Navbar() {
 
   const handleRdvClick = (e) => {
     e.preventDefault();
-    console.log("Formulaire RDV (à connecter plus tard)");
+    if (typeof window !== 'undefined' && window.openAppointmentForm) {
+      window.openAppointmentForm();
+    } else {
+      console.log("Formulaire RDV non disponible pour l'instant");
+    }
   };
 
   return (
     <header className="navbar-root">
       <div className={`navbar-container ${menuOpen ? 'menu-open' : ''}`}>
-        
+
         {/* Logo */}
         <div className="navbar-logo">
           <Link href="/">
@@ -33,10 +37,10 @@ export default function Navbar() {
 
         {/* Navigation Desktop */}
         <nav className="navbar-links">
-          <Link href="/offres">PARE-BRISE</Link>
-            <Link href="/depannage">REMORQUAGE</Link>
-          <Link href="/fonctionnement#faq">F.A.Q</Link>
-          <Link href="/contact">NOUS CONTACTER</Link>
+          <Link href="/">PARE-BRISE</Link>
+          <Link href="/depannage">REMORQUAGE</Link>
+          <Link href="/#Faq" scroll={true}>F.A.Q</Link>
+          <Link href="/contacteznous">NOUS CONTACTER</Link>
         </nav>
 
         {/* Bouton RDV Desktop */}

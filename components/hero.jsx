@@ -1,6 +1,14 @@
-// components/Hero.jsx
+'use client';
 
 export default function Hero() {
+  const handleClick = () => {
+    if (typeof window !== 'undefined' && window.openAppointmentForm) {
+      window.openAppointmentForm();
+    } else {
+      console.warn('openAppointmentForm n’est pas défini sur window');
+    }
+  };
+
   return (
     <section className="hero-section">
       <div className="hero-container">
@@ -11,19 +19,17 @@ export default function Hero() {
             </div>
 
             <h1>
-              Remplacement pare-brise avec reprise jusqu&apos;à 500€
+              Remplacement de pare-brise rapide sans rien avancer
             </h1>
 
             <p>
-              Faire changer son pare-brise ne devrait jamais être compliqué.
-              Ici, tout est pensé pour vous : un remplacement en 1 heure, sans
-              avance de frais, avec un service rapide et sans tracas. Et parce
-              qu’on aime faire mieux que les autres, un pare-brise changé =
-              un cadeau offert.
+              Remplacez votre pare-brise en toute simplicité : intervention en 1 heure,
+              prise en charge sans avance de frais et installation d’un vitrage certifié.
+              En bonus, chaque remplacement vous donne droit à un cadeau offert.
             </p>
 
             <div className="buttons">
-              <button className="button-primary">
+              <button className="button-primary" onClick={handleClick}>
                 PRENEZ RENDEZ-VOUS
               </button>
             </div>

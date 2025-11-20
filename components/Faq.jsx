@@ -47,7 +47,7 @@ export default function Faq() {
   };
 
   return (
-    <section className="faq-section">
+    <section className="faq-section" id="Faq">
       
       {/* 1. Entête de la section FAQ */}
       <div className="service-header">

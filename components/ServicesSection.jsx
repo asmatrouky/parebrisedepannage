@@ -1,11 +1,11 @@
-// components/ServicesSection.jsx
+'use client';
 
 export default function ServicesSection({
   tag,
   title,
   intro,
   services = [],
-  columns = 3, // nombre de cartes par ligne (modifiable)
+  columns = 3,
   className = "",
 }) {
   return (
@@ -39,6 +39,22 @@ export default function ServicesSection({
           </div>
         ))}
       </div>
+
+      {/* 🔥 Mobile uniquement */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .services-grid {
+            grid-template-columns: 1fr !important; /* une seule colonne */
+            justify-items: center !important;     /* centre la carte horizontalement */
+            align-items: center !important;       /* centre verticalement */
+          }
+
+          .service-card {
+            width: 100%;
+            max-width: 330px; /* évite que ce soit trop large */
+          }
+        }
+      `}</style>
     </section>
   );
 }

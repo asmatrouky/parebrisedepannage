@@ -1,14 +1,13 @@
-// components/NosServices.jsx
-
 export default function NosServices() {
   return (
     <section className="service-section">
       <div className="service-header">
-        <div className="tag">Intervention tous vitrages auto</div>
+        <div className="tag">Tous vitrages – Intervention rapide</div>
         <h2 className="sectiontitle">Nos services</h2>
         <p className="intro-text">
-          Notre équipe prend en charge tous types de vitrage automobile, qu&apos;il
-          s&apos;agisse de remplacement ou de réparation pare-brise.
+          Nous intervenons sur l’ensemble des vitrages automobiles : réparation,
+          remplacement et diagnostic. Un service précis, rapide et réalisé par
+          des techniciens spécialisés.
         </p>
       </div>
 
@@ -17,39 +16,39 @@ export default function NosServices() {
         <div className="services-container">
           <div className="service-card">
             <div className="image-container">
-              <img src="/img/1.png" alt="Remplacement de pare-brise" />
+              <img src="/img/1.png" alt="Remplacement pare-brise" />
             </div>
             <div className="text-card">
               <h3>Remplacement pare-brise</h3>
               <p>
-                Nous remplaçons votre pare-brise par un vitrage certifié, conforme
-                aux normes de sécurité constructeur (monte d&apos;origine) et
-                installé en moins d&apos;une heure.
+                Pose d’un pare-brise certifié, conforme aux normes constructeur,
+                avec une installation maîtrisée et rapide. Votre sécurité avant
+                tout.
               </p>
             </div>
           </div>
 
           <div className="service-card">
             <div className="image-container">
-              <img src="/img/3.png" alt="Réparation d'impact sur pare-brise" />
+              <img src="/img/3.png" alt="Réparation d'impact" />
             </div>
-            <h3>Réparation pare-brise</h3>
+            <h3>Réparation d’impact</h3>
             <p>
-              Nous privilégions la réparation des impacts légers, une solution
-              rapide, économique et écologique qui évite le remplacement complet du
-              pare-brise.
+              Une solution efficace pour stopper l’évolution d’un impact. Rapide,
+              économique et idéale pour éviter un remplacement complet lorsque
+              cela est possible.
             </p>
           </div>
 
           <div className="service-card">
             <div className="image-container">
-              <img src="/img/2.png" alt="Remplacement de vitre latérale" />
+              <img src="/img/2.png" alt="Vitre latérale" />
             </div>
             <h3>Remplacement vitre latérale</h3>
             <p>
-              En cas de bris ou d&apos;effraction, nous remplaçons vos vitres
-              latérales rapidement avec des vitrages conformes aux spécifications
-              constructeur.
+              Intervention express en cas de bris ou d’effraction. Nous
+              remplaçons votre vitre par un vitrage homologué, parfaitement
+              ajusté à votre véhicule.
             </p>
           </div>
         </div>
@@ -58,37 +57,36 @@ export default function NosServices() {
         <div className="services-container">
           <div className="service-card">
             <div className="image-container">
-              <img src="/img/6.png" alt="Remplacement lunette arrière" />
+              <img src="/img/6.png" alt="Lunette arrière" />
             </div>
             <h3>Remplacement lunette arrière</h3>
             <p>
-              Nous intervenons sur votre lunette arrière pour un remplacement
-              sécurisé, garantissant une parfaite étanchéité et une visibilité
-              optimale.
+              Remplacement complet avec restauration de l’étanchéité et du
+              système de dégivrage pour une visibilité optimale et durable.
             </p>
           </div>
 
           <div className="service-card">
             <div className="image-container">
-              <img src="/img/4.png" alt="Remplacement toit ouvrant" />
+              <img src="/img/4.png" alt="Toit ouvrant" />
             </div>
-            <h3>Remplacement toit ouvrant</h3>
+            <h3>Réparation & remplacement toit ouvrant</h3>
             <p>
-              Nous assurons le changement ou la réparation de votre toit ouvrant
-              avec des pièces compatibles et un montage réalisé dans les règles de
-              l&apos;art.
+              Prise en charge des toits ouvrants : vitrages, mécanismes,
+              infiltrations… Une intervention soignée pour retrouver un système
+              fonctionnel et sécurisé.
             </p>
           </div>
 
           <div className="service-card">
             <div className="image-container">
-              <img src="/img/5.png" alt="Remplacement toit panoramique" />
+              <img src="/img/5.png" alt="Toit panoramique" />
             </div>
             <h3>Remplacement toit panoramique</h3>
             <p>
-              Nous réalisons le remplacement complet de votre toit panoramique,
-              quel que soit le modèle de votre véhicule, avec une parfaite qualité
-              de pose.
+              Expertise sur tous types de toits panoramiques. Remplacement
+              complet avec un montage précis, quelle que soit la marque du
+              véhicule.
             </p>
           </div>
         </div>

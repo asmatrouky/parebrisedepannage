@@ -1,5 +1,3 @@
-// components/Presentation.jsx
-
 import React from 'react';
 import Image from 'next/image';
 
@@ -8,35 +6,35 @@ export default function Presentation() {
     <section className="presentation-section">
       <div className="presentation-container">
         
-        {/* Partie Gauche : Image */}
+        {/* Image */}
         <div className="presentation-image-container">
           <Image
-            src="/img/prsentation.jpg" // Remplacez par le chemin réel de votre image
-            alt="Intérieur d'un centre de franchisé avec voiture et éclairage moderne"
+            src="/img/prsentation.jpg"
+            alt="Technicien remplaçant un pare-brise dans un centre spécialisé"
             width={500}
             height={400}
             className="presentation-image"
           />
         </div>
         
-        {/* Partie Droite : Contenu Textuel */}
+        {/* Texte */}
         <div className="presentation-content">
           
-          <div className="tag ">
-            Franchise Innovante
-          </div>
+          <div className="tag">Expertise & Qualité</div>
           
-          <h2 className="presentation-title ">
-            Rejoignez notre réseau de franchisés
+          <h2 className="presentation-title">
+            Experts pare-brise & vitrages
           </h2>
           
           <p className="presentation-description">
-            Rejoignez le réseau Pare-Brise Éco et devenez acteur de l'économie circulaire. Profitez d'un concept innovant, rentable et en pleine croissance. Bénéficiez d'un accompagnement complet pour développer votre activité sur un marché porteur.
+            Nos techniciens sont formés aux dernières techniques de pose
+            et vous assurent un travail précis, sécurisé et conforme aux
+            exigences constructeur. Chaque intervention est réalisée avec
+            du matériel professionnel et des vitrages certifiés.
           </p>
+
           
-          <a href="#" className="btn-rdv">
-        En savoir +
-      </a>
+          <a href="#" className="btn-rdv">En savoir +</a>
         </div>
         
       </div>
