@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 export default function Hero() {
   const handleClick = () => {
@@ -19,7 +20,7 @@ export default function Hero() {
             </div>
 
             <h1>
-              Pare-brise cassé ? <br />On s’occupe de tout…
+              Faites remplacer votre pare-brise et recevez jusqu’à 500€
             </h1>
 
             <p>
@@ -33,6 +34,7 @@ export default function Hero() {
                 PRENEZ RENDEZ-VOUS
               </button>
             </div>
+             
           </div>
         </div>
       </div>

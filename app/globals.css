@@ -64,12 +64,14 @@ body {
   max-width: 80px !important;
 }
 
-/* Desktop nav links */
+/* Desktop nav links (Affiché par défaut) */
 .navbar-links {
   display: flex;
   gap: 30px;
   flex-grow: 1;
   justify-content: center;
+  display:flex;
+
 }
 
 .navbar-links a {
@@ -84,7 +86,7 @@ body {
   color: #A0A0A0;
 }
 
-/* Desktop RDV button */
+/* Desktop RDV button (Affiché par défaut) */
 .navbar-btn-desktop {
   display: block;
 }
@@ -120,59 +122,135 @@ body {
   margin-left: 20px;
 }
 
+/* =================================
+      STYLES DU MENU MOBILE 
+================================== */
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff; 
+  z-index: 999; 
+  transform: translateX(100%); 
+  transition: transform 0.3s ease-out;
+  /* Assurons-nous qu'il est bien masqué sur desktop */
+  display: none; 
+}
+
+.mobile-menu-overlay.open {
+  transform: translateX(0); 
+  display: block;
+}
+
+.mobile-menu-content {
+  padding: 120px 20px 20px;
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 0; 
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.mobile-menu-links a {
+  color: #101010;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 7px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-menu-links a:hover {
+  color: #A0A0A0;
+}
+
+/* Ajout de la flèche à droite pour les liens (comme sur l'image) */
+.mobile-menu-links a::after {
+    content: '\203A'; 
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.mobile-rdv-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: #7E22CE; 
+  color: white;
+  border: none;
+  padding: 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
 /* ========== RESPONSIVE NAVBAR ========== */
 
 @media (max-width: 1024px) {
 
   .navbar-root {
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  z-index: 1000;
-  }
-  /* MODIFIÉ: Masque les liens desktop et les icônes de téléphone/calendrier */
-  .navbar-links,
-  .navbar-mobile-btns {
-    display: none !important;
-  }
-
-  /* AJOUTÉ/MODIFIÉ: Force l'affichage du bouton RDV desktop sur mobile */
-  .navbar-btn-desktop {
-    display: block !important;
+    top: 0px; 
   }
   
-  /* AJOUTÉ/MODIFIÉ: Style du bouton RDV pour être compact comme dans l'image */
-  .navbar-rdv-btn {
-    padding: 10px 20px;
-    font-size: 13px;
-    border-radius: 5px;
-    margin-left: 60px;
-  }
-
-  /* MODIFIÉ: Affiche et stylise l'icône du menu burger */
-  .navbar-burger {
-    display: block !important;
-    font-size: 30px;
-    color: #101010; 
-    margin-left: 15px;
-  }
-
-  /* MODIFIÉ: Le container prend toute la largeur sur mobile et retire les arrondis */
   .navbar-container {
     width: 100%;
     border-radius: 0; 
     max-width: none;
     padding: 10px 20px; 
     box-shadow: none;
-
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1001; 
+    background-color: #ffffff; 
   }
   
-  /* AJOUTÉ: Ajustement pour l'alignement du logo sur mobile */
+  /* Cache la navigation desktop */
+  .navbar-links,
+  .navbar-btn-desktop {
+    display: none !important;
+  }
+
+  /* Cache l'overlay mobile par défaut */
+  .mobile-menu-overlay {
+    display: block; /* Affiché sur mobile, mais masqué par transform: translateX(100%) */
+  }
+
+  /* Mobile: Inverse les couleurs pour le logo et le burger */
   .navbar-logo-img {
       max-width: 60px !important;
   }
+  
+  .navbar-burger {
+    display: block !important;
+    font-size: 30px;
+    color: #1c1a1a; 
+    margin-left: 15px;
+    z-index: 1002; 
+  }
+
+  .navbar-mobile-btns {
+    display: none !important;
+  }
+}
+
+/* Fixe le problème de l'overlay qui reste visible sur desktop */
+@media (min-width: 1025px) {
+    .mobile-menu-overlay {
+        display: none !important;
+    }
 }
 
 /* ===============================
@@ -241,22 +319,27 @@ body {
   background-color: #9333ea;
   padding: 4px 30px;
   border-radius: 60px;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 20px;
   display: inline-block;
   font-size: 0.8em;
 }
 
 .hero-container h1 {
-  font-size: 2.8em;
-  font-weight: 550;
-  line-height: 1.3;
+  font-size: 47px;
+  font-weight: 500;
+  line-height: 1.2;
   margin-top: 0;
   margin-bottom: 15px;
-  color: white;
-  max-width: 690px;
+  color: #F5F5F5;
+  max-width: 710px;
 
 }
+
+.assurance{
+  margin-top : 30px;
+}
+
 
 .depannage-hero-container h1 {
   font-size: 2.8em;
@@ -319,7 +402,8 @@ body {
 @media (max-width: 768px) {
   .hero-container {
     margin-top : 75px;
-    min-height: 60vh;
+    min-height: 65vh;
+    max-height: 60vh;
     padding: 70px 15px;
     box-shadow: none;
     width: 93%;

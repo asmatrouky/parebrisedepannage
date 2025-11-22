@@ -16,11 +16,14 @@ export default function Navbar() {
     } else {
       console.log("Formulaire RDV non disponible pour l'instant");
     }
+    if (menuOpen) {
+      setMenuOpen(false);
+    }
   };
 
   return (
     <header className="navbar-root">
-      <div className={`navbar-container ${menuOpen ? 'menu-open' : ''}`}>
+      <div className="navbar-container"> 
 
         {/* Logo */}
         <div className="navbar-logo">
@@ -35,7 +38,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Navigation Desktop */}
         <nav className="navbar-links">
           <Link href="/">PARE-BRISE</Link>
           <Link href="/depannage">REMORQUAGE</Link>
@@ -50,8 +52,8 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Boutons Mobile */}
-        <div className="navbar-mobile-btns">
+        {/* Boutons Mobile (Phone/Calendar) */}
+        <div className="navbar-mobile-btns" style={{ display: 'none' }}>
           <a className="navbar-mobile-icon" href="tel:0753350012">
             <i className="fa-solid fa-phone"></i>
           </a>
@@ -60,10 +62,36 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Burger Menu */}
+        {/* Burger Menu / Bouton Fermer */}
         <button className="navbar-burger" onClick={toggleMenu}>
-          <i className="fa-solid fa-bars"></i>
+          {menuOpen ? (
+            <i className="fa-solid fa-xmark"></i> // Icône X pour fermer
+          ) : (
+            <i className="fa-solid fa-bars"></i> // Icône Burger
+          )}
         </button>
+      </div>
+
+      {/* 📱 Structure du Menu Mobile (AJOUTÉE) */}
+      <div className={`mobile-menu-overlay ${menuOpen ? 'open' : ''}`}>
+        <div className="mobile-menu-content">
+          <nav className="mobile-menu-links">
+            {/* Liens Mobile comme sur l'image */}
+            <Link href="/" onClick={toggleMenu}>
+              PARE-BRISE
+            </Link>
+            <Link href="/depannage" onClick={toggleMenu}>
+              REMORQUAGE
+            </Link>
+            <Link href="/contacteznous" onClick={toggleMenu}>
+              F.A.Q
+            </Link>
+          </nav>
+
+          <a href="#" onClick={handleRdvClick} className="mobile-rdv-btn">
+            PRENDRE RENDEZ-VOUS
+          </a>
+        </div>
       </div>
     </header>
   );
