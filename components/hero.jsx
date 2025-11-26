@@ -35,6 +35,25 @@ export default function Hero() {
               </button>
             </div>
              
+            {/* --- Nouvelle section d'assurance ajoutée ici --- */}
+            <div className="insurance-section">
+              <p className="collaboration-text">
+                Nous collaborons avec la plupart des grandes compagnies d’assurance :
+              </p>
+              <div className="insurance-logos">
+                <Image src="/img/logo-axa.png" alt="Logo MAAF" width={50} height={30} className="logo" />
+                <Image src="/img/logo-macif.png" alt="Logo MACIF" width={50} height={30} className="logo" />
+                <Image src="/img/logo-maaf.png" alt="Logo AXA" width={50} height={30} className="logo" />
+                <Image src="/img/logo-maif.png" alt="Logo MAIF" width={50} height={30} className="logo" />
+                <Image src="/img/logo-gmf.png" alt="Logo GMF" width={50} height={30} className="logo" />
+                
+                <span className="and-more-link">
+                  et bien d’autres encore, <a href="/savoir-plus">  en savoir plus...</a>
+                </span>
+              </div>
+            </div>
+            {/* ------------------------------------------------ */}
+
           </div>
         </div>
       </div>

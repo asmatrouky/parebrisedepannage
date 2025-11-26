@@ -1,4 +1,4 @@
-// components/DepannageHero.jsx
+import { Phone } from "lucide-react";
 
 export default function DepannageHero() {
   return (
@@ -8,20 +8,20 @@ export default function DepannageHero() {
           <div className="content">
             <div className="promo-tag">
               Dépannage et Remorquage professionnel
-
             </div>
 
             <h1>
-             Dépannage et Remorquage professionnel
+              Dépannage Auto Île-de-France 24h/24
             </h1>
 
             <p>
               Panne ou accident ? Trouvez un professionnel du dépannage et du remorquage 24/7 dans toute la France. Intervention rapide et devis immédiat par téléphone ou par mail.
             </p>
 
-            <div className="buttons">
-              <button className="button-primary">
-                Appelez nous
+            <div className="buttonsdepannage">
+              <button className="button-primary flex items-center gap-2">
+                <Phone size={18} />
+                APPELEZ-NOUS
               </button>
             </div>
           </div>

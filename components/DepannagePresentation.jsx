@@ -24,7 +24,7 @@ export default function DepannagePresentation() {
           
          
           
-          <h2 className="presentation-title ">
+          <h2 className="sectiontitle">
             Nos Services de dépannage et remorquage auto
           </h2>
           

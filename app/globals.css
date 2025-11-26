@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
-/* ===== Thème global ===== */
+/* =================================
+      1. IMPORTS ET VARIABLES GLOBALES
+================================== */
 
 :root {
+  /* Couleurs de base du thème */
   --background: #ffffff;
   --foreground: #171717;
-}
 
-/* Police globale */
-html,
-body {
-  font-family: 'Poppins', sans-serif;
+  /* Couleurs spécifiques (Violet principal) */
+  --color-primary: #9333EA;
+  --color-primary-hover: #7E22CE;
+  --color-text-light: #e1e1e1; /* Pour les paragraphes sur fond sombre */
+  --color-text-muted: #666; /* Pour les textes d'introduction */
 }
 
 @theme inline {
@@ -27,14 +30,146 @@ body {
   }
 }
 
+/* =================================
+      2. BASE (GLOBAL / THÈME & TYPOGRAPHIE)
+================================== */
+
+/* Police globale */
+html,
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
 }
 
-/* ===============================
-      NAVBAR CUSTOM
-=============================== */
+/* Titres de Section et Tags réutilisables */
+.tag,
+.promo-tag,
+.tag-rapide {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 5px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.promo-tag {
+  padding: 4px 30px;
+  font-size: 0.8em;
+}
+
+.sectiontitle {
+  font-size: 40px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.sectiontitle_left {
+  font-size: 35px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+
+.intro-text {
+  color: var(--color-text-muted);
+  font-size: 16px;
+  max-width: 700px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.intro-text_left {
+  color: var(--color-text-muted);
+  font-size: 16px;
+  max-width: 700px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+
+  text-align: left;
+
+}
+
+/* Boutons réutilisables */
+.buttons button {
+  border: none;
+  padding: 12px 45px;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.1s;
+  margin-right: 15px;
+}
+
+.buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-primary, .btn-rdv {
+  background-color: var(--color-primary);
+  color: white;
+    display: block;
+    width: fit-content;
+    margin-top: 15px;
+}
+
+.button-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.button-secondary {
+  background-color: white;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+
+  .sectiontitle {
+  font-size: 30px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.sectiontitle_left {
+  font-size: 30px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.section-description
+{
+  font-size: 14px;
+}
+}
+
+/* =================================
+      3. COMPOSANT NAV BAR (Bureau & Mobile)
+================================== */
 
 .navbar-root {
   display: flex;
@@ -64,14 +199,11 @@ body {
   max-width: 80px !important;
 }
 
-/* Desktop nav links (Affiché par défaut) */
 .navbar-links {
   display: flex;
   gap: 30px;
   flex-grow: 1;
   justify-content: center;
-  display:flex;
-
 }
 
 .navbar-links a {
@@ -86,13 +218,12 @@ body {
   color: #A0A0A0;
 }
 
-/* Desktop RDV button (Affiché par défaut) */
 .navbar-btn-desktop {
   display: block;
 }
 
 .navbar-rdv-btn {
-  background-color: #9333EA;
+  background-color: var(--color-primary);
   color: white;
   border: none;
   padding: 15px 30px;
@@ -104,15 +235,13 @@ body {
 }
 
 .navbar-rdv-btn:hover {
-  background-color: #7E22CE;
+  background-color: var(--color-primary-hover);
 }
 
-/* Mobile buttons hidden by default */
 .navbar-mobile-btns {
   display: none;
 }
 
-/* Burger menu hidden by default */
 .navbar-burger {
   display: none;
   cursor: pointer;
@@ -122,9 +251,7 @@ body {
   margin-left: 20px;
 }
 
-/* =================================
-      STYLES DU MENU MOBILE 
-================================== */
+/* --- Styles Menu Mobile --- */
 
 .mobile-menu-overlay {
   position: fixed;
@@ -132,16 +259,15 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #ffffff; 
-  z-index: 999; 
-  transform: translateX(100%); 
+  background-color: #ffffff;
+  z-index: 999;
+  transform: translateX(100%);
   transition: transform 0.3s ease-out;
-  /* Assurons-nous qu'il est bien masqué sur desktop */
-  display: none; 
+  display: none;
 }
 
 .mobile-menu-overlay.open {
-  transform: translateX(0); 
+  transform: translateX(0);
   display: block;
 }
 
@@ -153,7 +279,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-left: 0; 
+  padding-left: 0;
   list-style: none;
   margin-bottom: 40px;
 }
@@ -170,13 +296,8 @@ body {
   align-items: center;
 }
 
-.mobile-menu-links a:hover {
-  color: #A0A0A0;
-}
-
-/* Ajout de la flèche à droite pour les liens (comme sur l'image) */
 .mobile-menu-links a::after {
-    content: '\203A'; 
+    content: '\203A';
     font-size: 24px;
     font-weight: 300;
 }
@@ -185,7 +306,7 @@ body {
   display: block;
   width: 100%;
   text-align: center;
-  background-color: #7E22CE; 
+  background-color: var(--color-primary-hover);
   color: white;
   border: none;
   padding: 20px;
@@ -196,66 +317,57 @@ body {
   margin-top: 10px;
 }
 
-/* ========== RESPONSIVE NAVBAR ========== */
+/* --- Responsive Navbar --- */
 
 @media (max-width: 1024px) {
-
   .navbar-root {
-    top: 0px; 
+    top: 0px;
   }
-  
+
   .navbar-container {
     width: 100%;
-    border-radius: 0; 
+    border-radius: 0;
     max-width: none;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     box-shadow: none;
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1001; 
-    background-color: #ffffff; 
+    z-index: 1001;
+    background-color: #ffffff;
   }
-  
-  /* Cache la navigation desktop */
+
   .navbar-links,
   .navbar-btn-desktop {
     display: none !important;
   }
 
-  /* Cache l'overlay mobile par défaut */
   .mobile-menu-overlay {
-    display: block; /* Affiché sur mobile, mais masqué par transform: translateX(100%) */
+    display: block;
   }
 
-  /* Mobile: Inverse les couleurs pour le logo et le burger */
   .navbar-logo-img {
       max-width: 60px !important;
   }
-  
+
   .navbar-burger {
     display: block !important;
     font-size: 30px;
-    color: #1c1a1a; 
+    color: #1c1a1a;
     margin-left: 15px;
-    z-index: 1002; 
-  }
-
-  .navbar-mobile-btns {
-    display: none !important;
+    z-index: 1002;
   }
 }
 
-/* Fixe le problème de l'overlay qui reste visible sur desktop */
 @media (min-width: 1025px) {
     .mobile-menu-overlay {
         display: none !important;
     }
 }
 
-/* ===============================
-      HERO SECTION
-=============================== */
+/* =================================
+      4. SECTION HERO
+================================== */
 
 .hero-section {
   padding-top: 20px;
@@ -268,7 +380,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 75vh;
   width: 97%;
   background-image: url('/img/herobackround.jpg');
   background-color: #1a1a1a;
@@ -284,11 +396,8 @@ body {
 }
 
 .depannage-hero-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 70vh;
+  /* Style spécifique pour le remorquage */
+  min-height: 80vh;
   width: 97%;
   background-image: url('/img/remorquage.jpg');
   background-color: #1a1a1a;
@@ -306,23 +415,13 @@ body {
 .content-wrapper {
   display: flex;
   justify-content: center;
-  padding-top: 130px;
+  padding-top: 190px;
   padding-bottom: 60px;
 }
 
 .content {
   width: 85%;
   max-width: 1300px;
-}
-
-.promo-tag {
-  background-color: #9333ea;
-  padding: 4px 30px;
-  border-radius: 60px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  display: inline-block;
-  font-size: 0.8em;
 }
 
 .hero-container h1 {
@@ -333,13 +432,7 @@ body {
   margin-bottom: 15px;
   color: #F5F5F5;
   max-width: 710px;
-
 }
-
-.assurance{
-  margin-top : 30px;
-}
-
 
 .depannage-hero-container h1 {
   font-size: 2.8em;
@@ -348,74 +441,92 @@ body {
   margin-top: 0;
   margin-bottom: 15px;
   color: white;
-  max-width: 70%;
   max-width: 650px;
+}
 
+.hero-container p {
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  color: var(--color-text-light);
+  font-weight: 400;
+  width: 65%;
+  line-height: 180%;
 }
 
 .depannage-hero-container p {
   margin-bottom: 30px;
   font-size: 0.9em;
-  color: #e1e1e1;
+  color: var(--color-text-light);
   font-weight: 400;
   width: 65%;
   line-height: 180%;
 }
 
-.hero-container p {
-  margin-bottom: 30px;
-  font-size: 0.9em;
-  color: #e1e1e1;
-  font-weight: 400;
-  width: 65%;
-  line-height: 180%;
+.assurance{
+  margin-top : 30px;
 }
 
-.buttons button {
-  border: none;
-  padding: 12px 45px;
-  font-size: 0.9em;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.3s, transform 0.1s;
-  margin-right: 15px;
+/* --- Section Assurance dans Hero --- */
+
+.insurance-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: left;
 }
 
-.buttons button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.collaboration-text {
+    font-size: 0.9em;
+    color: #fff;
+    margin-bottom: 15px;
 }
 
-.button-primary {
-  background-color: #9333ea;
-  color: white;
+.insurance-logos {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.button-secondary {
-  background-color: white;
-  color: #333;
-  border: 1px solid #ccc;
+.insurance-logos .logo {
+    opacity: 0.9;
 }
 
-/* Responsive HERO */
+.and-more-link {
+    font-size: 0.9em;
+    color: #fff;
+    /* Suppression du margin-left car il n'est plus nécessaire si les logos ne sont pas centrés */
+}
+
+.and-more-link a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* --- Responsive HERO --- */
+
 @media (max-width: 768px) {
   .hero-container {
     margin-top : 75px;
-    min-height: 65vh;
-    max-height: 60vh;
-    padding: 70px 15px;
+    min-height: 50vh;
+    padding: 55px 15px 0px 15px;
     box-shadow: none;
     width: 93%;
     margin-bottom: 50px;
     letter-spacing: -0.025em;
+  }
 
+  .depannage-hero-container {
+    margin-top : 75px;
+    min-height: 50vh;
+    max-height: 60vh;
+    padding: 70px 15px;
   }
 
   .content-wrapper {
-  display: flex;
-  justify-content: center;
-  padding-top : 0px;
+    padding-top : 0px;
   }
 
   .content {
@@ -423,7 +534,7 @@ body {
     padding-left: 5px;
   }
 
-  .hero-container h1 {
+  .hero-container h1, .depannage-hero-container h1 {
     font-size: 2.1em;
     width: 100%;
     line-height: 130%;
@@ -433,44 +544,65 @@ body {
     padding-top: 10px;
     font-size: 0.9em;
     width: 100%;
+  }
 
+  .depannage-hero-container p {
+    width: 98%;
   }
 
   .buttons {
     display: flex;
     flex-direction: column;
-    border-radius: 50px;
     font-size: 17px;
   }
 
   .buttons button {
-  max-width: 65%;
+    max-width: 65%;
     font-weight: 600;
-      font-size: 0.8em;
-        padding: 12px 20px;
+    font-size: 0.8em;
+    padding: 12px 20px;
+  }
 
+  .buttonsdepannage {
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+    border-radius: 50px;
+  }
 
-
+  .buttonsdepannage button {
+    max-width: 55%;
+    font-weight: 600;
+    font-size: 0.8em;
+    padding: 12px 20px;
+    border-radius: 18px;
   }
 
   .promo-tag {
+    font-weight: 600;
+    padding: 4px 18px;
+  }
 
-  font-weight: 600;
-  background-color: #9333ea;
-  padding: 4px 18px;
+  .insurance-logos {
+    gap: 8px;
+  }
 
+  .insurance-section {
+    border-top: 1px solid #fff3;
+    margin-top: 0px;
+    padding-top: 20px;
+  }
 }
-}
-/* ===============================
-      SECTION NOS SERVICES
-=============================== */
+
+/* =================================
+      5. SECTION NOS SERVICES
+================================== */
 
 .service-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-top: 0px;
   padding-bottom: 60px;
   background-color: #ffffff;
 }
@@ -481,44 +613,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.service-header .tag {
-  display: inline-block;
-  background-color: #9333ea;
-  color: white;
-  padding: 5px 20px;
-  border-radius: 50px;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.tag {
-  display: inline-block;
-  background-color: #9333ea;
-  color: white;
-  padding: 5px 20px;
-  border-radius: 50px;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.sectiontitle {
-  font-size: 30px;
-  font-weight: 600;
-  color: #333;
-  margin-top: 10px;
-  margin-bottom: 0;
-  text-align: center;
-}
-
-.service-header .intro-text {
-  color: #666;
-  font-size: 16px;
-  max-width: 700px;
-  margin-top: 15px;
 }
 
 .services-group {
@@ -576,23 +670,13 @@ body {
 
 .service-card p {
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-muted);
   line-height: 1.6;
   margin: 5px 10px;
 }
 
-/* Responsive */
+/* Responsive Services */
 @media (max-width: 900px) {
-
-  .sectiontitle {
-  font-size: 30px;
-  font-weight: 600;
-  color: #333;
-  margin-top: 10px;
-  margin-bottom: 0;
-  text-align: center;
-}
-
   .services-group {
     width: 90%;
   }
@@ -606,33 +690,35 @@ body {
     max-width: 95%;
     margin-bottom: 20px;
   }
-.service-header {
-  padding: 10px 20px;
-}
+  .service-header {
+    padding: 10px 20px;
+  }
+
+  .intro-text{
+    font-size: 14px;
+  }
+.intro-text_left{
+    font-size: 14px;
+        text-align: center;
+  }
 
 
-.service-header .intro-text{
-  font-size: 14px;
-}
 }
 
-/* ===============================
-      SECTION COMMENT ÇA MARCHE
-=============================== */
+/* =================================
+      6. SECTION COMMENT ÇA MARCHE
+================================== */
 
 .how-it-works-section {
   text-align: center;
-  padding-bottom: 30px;
-  background-color: #ffffff;
+padding: 60px 20px;  
+background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   box-sizing: border-box;
 }
-
-/* .service-header, .tag, .intro-text sont déjà stylés
-   pour la section Nos Services, donc on réutilise le même style */
 
 .steps-container {
   display: flex;
@@ -676,7 +762,7 @@ body {
 
 .step-card p {
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-muted);
   line-height: 1.6;
   margin: 0;
 }
@@ -685,7 +771,7 @@ body {
   margin-left: 5px;
 }
 
-/* Responsive */
+/* Responsive How It Works */
 @media (max-width: 900px) {
   .steps-container {
     gap: 20px;
@@ -696,10 +782,9 @@ body {
   }
 }
 
-
-/* ===============================
-      SECTION PRENDRE RENDEZ-VOUS
-=============================== */
+/* =================================
+      7. SECTION PRENDRE RENDEZ-VOUS
+================================== */
 
 .rdv-container {
   background-color: #333333;
@@ -707,28 +792,20 @@ body {
   padding: 60px 20px;
   text-align: center;
   width: 90%;
-  margin: 20px auto;
+  margin: 80px auto;
+  display: flex;
+      flex-direction: column;
+      align-items: center;
 }
 
-.tag-rapide {
-  display: inline-block;
-  background-color: #9333ea;
-  color: white;
-  padding: 5px 20px;
-  border-radius: 50px;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.title {
+.rdv-container .title {
   font-size: 40px;
   font-weight: 600;
   color: white;
   margin: 0 0 15px 0;
 }
 
-.description {
+.rdv-container .description {
   font-size: 14px;
   color: #f4f4f4;
   max-width: 800px;
@@ -738,8 +815,7 @@ body {
 }
 
 .btn-rdv {
-  display: inline-block;
-  background-color: #9333ea;
+  background-color: var(--color-primary);
   color: white;
   padding: 10px 35px;
   border-radius: 8px;
@@ -751,146 +827,30 @@ body {
 }
 
 .btn-rdv:hover {
-  background-color: #7d26c5;
+  background-color: var(--color-primary-hover);
   transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
-  .title {
+  .rdv-container .title {
     font-size: 32px;
   }
-  .description {
+  .rdv-container .description {
     font-size: 14px;
   }
 }
-/* ===============================
-      SECTION FAQ
-=============================== */
 
-.intro-text {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.faq-section {
-    /* Le padding vertical est souvent géré par la section parente ou le main content */
-    padding-top: 60px; 
-    padding-bottom: 80px;
-    background-color: #ffffff; 
-}
-
-/* Le service-header est réutilisé pour l'entête de la FAQ */
-
-.faq-container {
-  /* Centre le container et définit la largeur maximale pour l'accordéon */
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.faq-item {
-  /* Conteneur de l'élément de la FAQ (Question + Réponse) */
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
-  overflow: hidden; /* Important pour l'animation de bascule */
-}
-
-.faq-header {
-  /* Tête de la question (Zone cliquable) */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 25px;
-  cursor: pointer;
-}
-
-.faq-question {
-  /* Style du texte de la question */
-  font-size: 16px;
-  font-weight: 600;
-  color: #101010;
-  margin: 0;
-}
-
-.faq-icon-wrapper {
-  /* Conteneur de l'icône */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-}
-
-.faq-icon {
-  /* Style de l'icône (+ ou -) */
-  font-size: 24px;
-  font-weight: 400;
-  color: #101010;
-}
-
-/* Style spécifique pour la question ouverte (comme dans l'image) */
-.faq-item.open {
-  background-color: #F4F4F4; /* Fond clair pour la section ouverte */
-}
-
-/* La question ouverte garde un fond blanc pour le titre */
-.faq-item.open .faq-header {
-  background-color: #FFFFFF;
-  border-radius: 8px 8px 0 0;
-}
-
-/* Corps de la réponse */
-.faq-answer-wrapper {
-  /* Animation de bascule */
-  max-height: 0;
-  transition: max-height 0.3s ease-in-out;
-  background-color: #F4F4F4;
-}
-
-.faq-answer {
-  /* Texte de la réponse */
-  font-size: 15px;
-  line-height: 1.6;
-  color: #404040;
-  padding: 15px 25px 20px;
-  margin: 0;
-}
-
-@media (max-width: 768px) {
-  .title {
-    font-size: 32px;
-  }
-  .description {
-    font-size: 14px;
-  }
-
-  .intro-text {
-
-  text-align: center;
-}
-}
-
-/* ===============================
-      SECTION PRESENTATION
-=============================== */
+/* =================================
+      8. SECTION PRÉSENTATION
+================================== */
 
 .presentation-section {
-    padding: 90px 20px;
+    padding: 60px 20px;
     background-color: var(--background);
-    display: flex;
-    padding: 90px 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-
 }
 
 .presentation-container {
@@ -900,15 +860,12 @@ body {
     gap: 50px;
     max-width: 1200px;
     margin: 0 auto;
-
 }
 
-/* --- Image --- */
 .presentation-image-container {
     flex: 2;
     max-width: 35%;
-    /* MODIFIÉ: S'assure d'une bordure très arrondie comme sur l'image */
-    border-radius: 20px; 
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -919,49 +876,45 @@ body {
     display: block;
 }
 
-/* --- Contenu --- */
 .presentation-content {
     flex: 1;
     max-width: 50%;
     padding: 20px 0;
+    
 }
 
 .presentation-tag {
-    /* MODIFIÉ: Ajuste le style du tag */
-    background-color: #9333ea !important; /* Vert */
+    background-color: var(--color-primary) !important;
     color: white !important;
-    padding: 6px 18px !important; /* Padding ajusté */
+    padding: 6px 18px !important;
     font-size: 14px !important;
-    border-radius: 6px !important; /* Légèrement moins arrondi */
+    border-radius: 6px !important;
     font-weight: 600 !important;
     margin-bottom: 20px;
-    /* FIN MODIFIÉ */
 }
 
 .presentation-title {
     line-height: 1.15;
     margin: 0 0 20px 0;
-  font-size: 40px;
-  font-weight: 600;
-  color: #333;
-  margin-top: 10px;
-  margin-bottom: 10px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 
 .presentation-description {
-    /* Style par défaut conservé pour le paragraphe */
     font-size: 14px;
     line-height: 1.8;
-    color: #666;
+    color: var(--color-text-muted);
     margin-bottom: 30px;
     width: 90%;
     margin-top: 25px;
     margin-bottom: 35px;
-
 }
 
-/* Responsive pour mobile */
+/* Responsive Presentation */
 @media (max-width: 900px) {
     .presentation-container {
         flex-direction: column;
@@ -973,22 +926,106 @@ body {
     .presentation-content {
         max-width: 100%;
         flex: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    
+
     .presentation-image-container {
-        /* L'image sur mobile semble prendre toute la largeur */
         width: 100%;
     }
 
     .presentation-title {
         font-size: 30px;
     }
-
-
 }
-/* ===============================
-      FOOTER
-=============================== */
+
+/* =================================
+      9. SECTION FAQ
+================================== */
+
+.faq-section {
+    padding-top: 60px;
+    padding-bottom: 80px;
+    background-color: #ffffff;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.faq-item {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  cursor: pointer;
+}
+
+.faq-question {
+  font-size: 16px;
+  font-weight: 600;
+  color: #101010;
+  margin: 0;
+}
+
+.faq-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.faq-icon {
+  font-size: 24px;
+  font-weight: 400;
+  color: #101010;
+}
+
+.faq-item.open {
+  background-color: #F4F4F4;
+}
+
+.faq-item.open .faq-header {
+  background-color: #FFFFFF;
+  border-radius: 8px 8px 0 0;
+}
+
+.faq-answer-wrapper {
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
+  background-color: #F4F4F4;
+}
+
+.faq-answer {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #404040;
+  padding: 15px 25px 20px;
+  margin: 0;
+}
+
+/* Responsive FAQ */
+@media (max-width: 768px) {
+  .intro-text {
+    text-align: center;
+  }
+}
+
+/* =================================
+      10. FOOTER
+================================== */
 
 .footer-root {
   background-color: #333333;
@@ -996,7 +1033,6 @@ body {
   padding: 70px 10px 30px 10px;
   font-family: 'Poppins', sans-serif;
   margin-top: 50px;
-
 }
 
 .footer-content-wrapper {
@@ -1045,7 +1081,7 @@ body {
   justify-content: center;
   width: 30px;
   height: 30px;
-  background-color: #9333ea;
+  background-color: var(--color-primary);
   color: white;
   border-radius: 50%;
   font-size: 14px;
@@ -1053,7 +1089,7 @@ body {
 }
 
 .footer-socials a:hover {
-  background-color: #9333ea;
+  background-color: var(--color-primary-hover);
 }
 
 .footer-title {
@@ -1130,7 +1166,7 @@ body {
   color: white;
 }
 
-/* ========== Responsive Footer ========== */
+/* Responsive Footer */
 @media (max-width: 850px) {
   .footer-main-content {
     flex-direction: column;
