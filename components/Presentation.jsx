@@ -18,9 +18,10 @@ export default function PresentationSection({
   description = 'Nos techniciens sont formés aux dernières techniques de pose et vous assurent un travail précis, sécurisé et conforme aux exigences constructeur. Chaque intervention est réalisée avec du matériel professionnel et des vitrages certifiés.',
   buttonLabel = 'En savoir +',
   buttonHref = '#',
+  buttonClass = "", // <--- nouvelle prop
   imageSrc = '/img/prsentation.jpg',
   imageAlt = 'Technicien remplaçant un pare-brise dans un centre spécialisé',
-  mobileImageFirst = true, // <--- contrôle l’ordre sur mobile
+  mobileImageFirst = false, // <--- contrôle l’ordre sur mobile
 }) {
   return (
     <section className="presentation-section">
@@ -57,7 +58,7 @@ export default function PresentationSection({
           )}
 
           {buttonLabel && (
-            <a href={buttonHref} className="btn-rdv">
+             <a href={buttonHref} className={`btn-rdv ${buttonClass}`}>
               {buttonLabel}
             </a>
           )}

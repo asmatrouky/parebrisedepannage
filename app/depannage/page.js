@@ -1,9 +1,13 @@
 // app/depannage/page.js
 import DepannageHero from '@/components/DepannageHero';
-import DepannagePresentation from '@/components/DepannagePresentation';
 import ServicesSection from "@/components/ServicesSection";
 import StepsSection from '@/components/StepsSection';
 import FaqDepannage from '@/components/FaqDepannage';
+import Presentation from '@/components/Presentation';
+import PrendreRDV from '@/components/PrendreRdv';
+import PourquoiNous from  '@/components/pourquoiNous';
+
+
 export const metadata = {
   title: 'Remorquage & Dépannage | Pare-Brise Dépannage',
   description:
@@ -14,10 +18,23 @@ export default function DepannagePage() {
   return (
     <>
         <DepannageHero/>
-        <DepannagePresentation/>
+
+          <Presentation
+              tag="Assurances partenaires"
+              title="Dépannage et remorquage auto"
+              description="Un imprévu sur la route ? On intervient sans attendre ! Ne laissez pas une panne gâcher votre journée. Avec Pare-Brise & Dépannage France, bénéficiez d’une assistance immédiate, efficace et à prix ultra-compétitifs."
+              buttonLabel="Appelez-nous ! 🚨"
+              buttonHref="/pr"
+              imageSrc="/img/presentationdepannage.jpg"
+              imageAlt="Logos de nos assurances partenaires"
+              mobileImageFirst={false}
+
+            />
+
         <ServicesSection
             title="Interventions rapides & efficaces"
-            intro="Des solutions immédiates pour les pannes les plus courantes."
+            tag="Interventions"
+            intro="Il n’est pas toujours nécessaire de remorquer un véhicule. Parfois, une intervention sur place suffit. C’est là que notre service de dépannage entre en jeu : des solutions immédiates pour les pannes les plus courantes."
             columns={3}
             services={[
               {
@@ -41,7 +58,7 @@ export default function DepannagePage() {
             ]}
           />
 
-
+<PourquoiNous />
     <StepsSection
         tag="Dépanange & remorquage 24/7"
         title="Comment ça marche ?"
@@ -70,6 +87,26 @@ export default function DepannagePage() {
           },
         ]}
       />
+
+      <Presentation
+            tag="Assurances partenaires"
+            title="Nos assurances partenaires"
+            description="Nous travaillons avec la majorité des compagnies d’assurance afin de vous garantir une prise en charge simple, rapide et totalement transparente. Peu importe votre assureur, nous facilitons les démarches pour un remplacement de pare-brise sans stress."
+            buttonLabel="Prendre RDV"
+            buttonHref="/pr"
+            imageSrc="/img/assurance.jpeg"
+            imageAlt="Logos de nos assurances partenaires"
+            mobileImageFirst={false}
+          />
+
+
+    <PrendreRDV
+      tag="Dépannage rapide"
+      title="Besoin d'un remorquage ?"
+      description="Notre équipe intervient 24/7 pour dépanner et remorquer votre véhicule partout en Île-de-France. Intervention immédiate et devis par téléphone."
+      buttonLabel="APPELER NOUS ! "
+      buttonHref="tel:0123456789"
+    />
 
             <FaqDepannage />
       

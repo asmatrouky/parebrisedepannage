@@ -6,7 +6,7 @@ export default function DepannageHero() {
       <div className="depannage-hero-container">
         <div className="content-wrapper">
           <div className="content">
-            <div className="promo-tag">
+            <div className="promo-tag ">
               Dépannage et Remorquage professionnel
             </div>
 
@@ -18,11 +18,11 @@ export default function DepannageHero() {
               Panne ou accident ? Trouvez un professionnel du dépannage et du remorquage 24/7 dans toute la France. Intervention rapide et devis immédiat par téléphone ou par mail.
             </p>
 
-            <div className="buttonsdepannage">
-              <button className="button-primary flex items-center gap-2">
-                <Phone size={18} />
-                APPELEZ-NOUS
-              </button>
+            <div className="buttons ">
+              <button className="button-primary button_urgent button-with-icon">
+              <Phone size={18} />
+              <span>APPELEZ-NOUS 🚨</span>
+            </button>
             </div>
           </div>
         </div>
