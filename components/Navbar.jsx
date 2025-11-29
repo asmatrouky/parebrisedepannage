@@ -41,7 +41,7 @@ export default function Navbar() {
         <nav className="navbar-links">
           <Link href="/">PARE-BRISE</Link>
           <Link href="/depannage">REMORQUAGE</Link>
-          <Link href="/#Faq" scroll={true}>F.A.Q</Link>
+          <Link href="/FAQ" scroll={true}>F.A.Q</Link>
           <Link href="/contacteznous">NOUS CONTACTER</Link>
         </nav>
 
@@ -83,8 +83,11 @@ export default function Navbar() {
             <Link href="/depannage" onClick={toggleMenu}>
               REMORQUAGE
             </Link>
-            <Link href="/contacteznous" onClick={toggleMenu}>
+            <Link href="/FAQ" onClick={toggleMenu}>
               F.A.Q
+            </Link>
+               <Link href="/contacteznous" onClick={toggleMenu}>
+              NOUS CONTACTER
             </Link>
           </nav>
 

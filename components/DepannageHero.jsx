@@ -11,7 +11,7 @@ export default function DepannageHero() {
             </div>
 
             <h1>
-              Dépannage Auto Île-de-France 24h/24
+              Remorquage Auto Rapide Paris & Île-de-France
             </h1>
 
             <p>

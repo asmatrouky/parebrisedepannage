@@ -86,7 +86,7 @@ export default function Footer() {
             © {currentYear} WebmaAgency. Tous droits réservés.
           </p>
           <div className="footer-legal-links">
-            <Link href="/mentions-legales">Mentions légales</Link>
+            <Link href="/mentionlegal">Mentions légales</Link>
             <Link href="/cgu">CGU</Link>
             <Link href="/confidentialite">Confidentialité</Link>
           </div>
