@@ -135,7 +135,7 @@ export default function DepannageHero() {
                   onChange={handleChange}
                   value={formData.date}
                   required
-                  inputMode="numeric"
+                  inputMode="date"
                 />
               ) : (
                 <input
