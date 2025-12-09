@@ -40,7 +40,7 @@ export default function DepannageHero() {
                     <input type="text" placeholder="Heure" className="input-field" />
                     <button className="btn-booking-submit" type="button">
                       <Calendar size={18} style={{ marginRight: '8px' }} />
-                      Reserver une i
+                      Reserver
                     </button>
                   </div>
                 </form>
