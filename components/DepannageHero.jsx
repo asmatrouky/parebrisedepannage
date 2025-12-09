@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Calendar, Headset } from "lucide-react";
 
 export default function DepannageHero() {
@@ -12,14 +12,23 @@ export default function DepannageHero() {
     hour: "",
   });
 
-  // Pour Safari / iPhone : astuce type text -> date
-  const [dateInputType, setDateInputType] = useState("text");
+  const [isIOS, setIsIOS] = useState(false);
+
+  // 🔍 Détection simple d'iOS (iPhone / iPad) pour gérer le champ date
+  useEffect(() => {
+    if (typeof navigator !== "undefined") {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      if (/iPad|iPhone|iPod/.test(ua)) {
+        setIsIOS(true);
+      }
+    }
+  }, []);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [e.target.name]: e.target.value,
-    });
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -46,7 +55,6 @@ export default function DepannageHero() {
         date: "",
         hour: "",
       });
-      setDateInputType("text"); // on remet l’état visuel du placeholder
     } catch (err) {
       console.error("Erreur réseau :", err);
       alert("Erreur lors de l’envoi du formulaire.");
@@ -62,14 +70,13 @@ export default function DepannageHero() {
               Dépannage et Remorquage professionnel
             </div>
 
-            <h1>Remorquage Auto Rapide Paris & Île-de-France</h1>
+            <h1>Remorquage Auto Rapide Paris &amp; Île-de-France</h1>
 
             <p>
               Panne ou accident ? Trouvez un professionnel du dépannage et du
               remorquage 24/7 dans toute la France. Intervention rapide et devis
               immédiat par téléphone ou par mail.
             </p>
-
             <div className="buttons">
               <button className="button-primary">
                 <i className="fa-solid fa-phone"></i>&nbsp;
@@ -102,7 +109,6 @@ export default function DepannageHero() {
                 name="phone"
                 placeholder="Téléphone"
                 className="input-field"
-                inputMode="tel" // clavier numérique iPhone
                 onChange={handleChange}
                 value={formData.phone}
                 required
@@ -119,24 +125,30 @@ export default function DepannageHero() {
             </div>
 
             <div className="form-row-dep">
-              {/* Champ date compatible iPhone / Safari avec placeholder */}
-              <input
-                type={dateInputType}
-                name="date"
-                placeholder="Date souhaitée"
-                className="input-field"
-                onFocus={() => setDateInputType("date")}
-                onBlur={(e) => {
-                  if (!e.target.value) {
-                    setDateInputType("text");
-                  }
-                }}
-                onChange={handleChange}
-                value={formData.date}
-                required
-              />
+              {/* 📅 Champ date : type="date" normal sauf sur iOS */}
+              {isIOS ? (
+                <input
+                  type="text"
+                  name="date"
+                  placeholder="Date souhaitée (JJ/MM/AAAA)"
+                  className="input-field"
+                  onChange={handleChange}
+                  value={formData.date}
+                  required
+                  inputMode="numeric"
+                />
+              ) : (
+                <input
+                  type="date"
+                  name="date"
+                  className="input-field"
+                  onChange={handleChange}
+                  value={formData.date}
+                  required
+                />
+              )}
 
-              {/* Sélection des créneaux horaires jusqu'à 22h */}
+              {/* Sélection des créneaux 08:00 → 22:00 */}
               <select
                 name="hour"
                 className="input-field"
@@ -144,9 +156,7 @@ export default function DepannageHero() {
                 value={formData.hour}
                 required
               >
-                <option value="" disabled>
-                  Sélectionner un créneau
-                </option>
+                <option value="">Créneau souhaité</option>
                 <option value="08:00">08:00</option>
                 <option value="08:30">08:30</option>
                 <option value="09:00">09:00</option>
