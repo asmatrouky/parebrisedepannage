@@ -66,10 +66,11 @@ export default function DepannageHero() {
               immédiat par téléphone ou par mail.
             </p>
 
-            <div className="buttons">
-              <a href="tel:0753350012" className="button-primary">
-                <i className="fa-solid fa-phone"></i>&nbsp;07 53 35 00 12
-              </a>
+             <div className="buttons">
+              <button className="button-primary">
+                <i className="fa-solid fa-phone"></i>&nbsp;
+                07 53 35 00 12
+              </button>
             </div>
           </div>
         </div>
@@ -123,6 +124,7 @@ export default function DepannageHero() {
                 required
               />
 
+              {/* ⏰ Créneaux horaires */}
               <select
                 name="hour"
                 className="input-field"
@@ -139,9 +141,6 @@ export default function DepannageHero() {
                 <option value="11:00">11:00</option>
                 <option value="11:30">11:30</option>
                 <option value="12:00">12:00</option>
-                <option value="12:30">12:30</option>
-                <option value="13:00">13:00</option>
-                <option value="13:30">13:30</option>
                 <option value="14:00">14:00</option>
                 <option value="14:30">14:30</option>
                 <option value="15:00">15:00</option>
@@ -151,7 +150,6 @@ export default function DepannageHero() {
                 <option value="17:00">17:00</option>
                 <option value="17:30">17:30</option>
                 <option value="18:00">18:00</option>
-                <option value="18:30">18:30</option>
                 <option value="19:00">19:00</option>
                 <option value="19:30">19:30</option>
                 <option value="20:00">20:00</option>
