@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Calendar, Headset } from "lucide-react";
+import React, { useState } from "react";
+import { Phone, Calendar, Headset } from "lucide-react";
 
 export default function DepannageHero() {
   const [formData, setFormData] = useState({
@@ -11,16 +11,6 @@ export default function DepannageHero() {
     date: "",
     hour: "",
   });
-
-  const [isIOS, setIsIOS] = useState(false);
-
-  // Détecter iPhone / iPad (Safari mobile)
-  useEffect(() => {
-    if (typeof navigator !== "undefined") {
-      const ua = navigator.userAgent || navigator.vendor || "";
-      setIsIOS(/iPad|iPhone|iPod/.test(ua));
-    }
-  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -40,6 +30,7 @@ export default function DepannageHero() {
       });
 
       if (!res.ok) {
+        console.error("Erreur API :", await res.text());
         alert("Erreur lors de l’envoi du formulaire.");
         return;
       }
@@ -53,31 +44,26 @@ export default function DepannageHero() {
         hour: "",
       });
     } catch (err) {
-      alert("Erreur réseau.");
-      console.error(err);
+      console.error("Erreur réseau :", err);
+      alert("Erreur lors de l’envoi du formulaire.");
     }
   };
 
   return (
     <section className="depannage-hero-section">
-
-      {/* STYLE pour placeholder iOS */}
-      <style>{`
-        .ios-placeholder::placeholder {
-          color: #b3b3b3;
-        }
-      `}</style>
-
       <div className="depannage-hero-container">
         <div className="content-wrapper">
           <div className="content-dep">
-            <div className="promo-tag">Dépannage et Remorquage professionnel</div>
+            <div className="promo-tag">
+              Dépannage et Remorquage professionnel
+            </div>
 
             <h1>Remorquage Auto Rapide Paris & Île-de-France</h1>
 
             <p>
               Panne ou accident ? Trouvez un professionnel du dépannage et du
-              remorquage 24/7 dans toute la France.
+              remorquage 24/7 dans toute la France. Intervention rapide et devis
+              immédiat par téléphone ou par mail.
             </p>
 
             <div className="buttons">
@@ -90,20 +76,19 @@ export default function DepannageHero() {
       </div>
 
       <div className="hero-widgets-container">
+        {/* FORMULAIRE DE RÉSERVATION */}
         <div className="widget-box booking-widget">
-          <h3>Réserver une intervention</h3>
+          <h3> Réserver une intervention </h3>
 
           <form className="booking-form" onSubmit={handleSubmit}>
-
-            {/* Ligne nom / téléphone / email */}
             <div className="form-row-dep">
               <input
                 type="text"
                 name="name"
                 placeholder="Nom"
                 className="input-field"
-                value={formData.name}
                 onChange={handleChange}
+                value={formData.name}
                 required
               />
 
@@ -112,8 +97,8 @@ export default function DepannageHero() {
                 name="phone"
                 placeholder="Téléphone"
                 className="input-field"
-                value={formData.phone}
                 onChange={handleChange}
+                value={formData.phone}
                 required
               />
 
@@ -122,39 +107,59 @@ export default function DepannageHero() {
                 name="email"
                 placeholder="Email"
                 className="input-field"
-                value={formData.email}
                 onChange={handleChange}
+                value={formData.email}
               />
             </div>
 
-            {/* Ligne date / heure / bouton */}
             <div className="form-row-dep">
-
-              {/* DATE – adaptatif iPhone */}
+              {/* 📅 Date : calendrier natif */}
               <input
+                type="date"
                 name="date"
-                className={`input-field ${isIOS ? "ios-placeholder" : ""}`}
-                value={formData.date}
+                className="input-field"
                 onChange={handleChange}
+                value={formData.date}
                 required
-                type={isIOS ? "text" : "date"}
-                placeholder={isIOS ? "Date (JJ/MM/AAAA)" : undefined}
-                inputMode={isIOS ? "numeric" : undefined}
-                pattern={isIOS ? "\\d{2}/\\d{2}/\\d{4}" : undefined}
               />
 
-              {/* HEURE – adaptatif iPhone */}
-              <input
+              <select
                 name="hour"
-                className={`input-field ${isIOS ? "ios-placeholder" : ""}`}
-                value={formData.hour}
+                className="input-field"
                 onChange={handleChange}
+                value={formData.hour}
                 required
-                type={isIOS ? "text" : "time"}
-                placeholder={isIOS ? "Heure (HH:MM)" : undefined}
-                inputMode={isIOS ? "numeric" : undefined}
-                pattern={isIOS ? "^\\d{2}:\\d{2}$" : undefined}
-              />
+              >
+                <option value="08:00">08:00</option>
+                <option value="08:30">08:30</option>
+                <option value="09:00">09:00</option>
+                <option value="09:30">09:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+                <option value="21:30">21:30</option>
+                <option value="22:00">22:00</option>
+              </select>
 
               <button className="btn-booking-submit" type="submit">
                 <Calendar size={18} style={{ marginRight: "8px" }} />
@@ -164,7 +169,7 @@ export default function DepannageHero() {
           </form>
         </div>
 
-        {/* APPEL URGENT */}
+        {/* BLOC APPEL URGENT */}
         <div className="widget-box call-widget">
           <h3>Urgence ? Appelez-nous !</h3>
 
@@ -179,7 +184,6 @@ export default function DepannageHero() {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
