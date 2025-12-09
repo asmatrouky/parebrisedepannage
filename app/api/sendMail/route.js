@@ -19,8 +19,8 @@ export async function POST(request) {
     } = data;
 
     await resend.emails.send({
-      from: "onboarding@resend.dev",          // ✅ pour commencer avec Resend
-      to: process.env.EMAIL_TO,               // ✅ ton email perso défini dans .env
+      from: "onboarding@resend.dev",          
+      to: process.env.EMAIL_TO,            
       subject: "Nouvelle demande de rendez-vous",
       text: `
 NOUVELLE DEMANDE DE RDV

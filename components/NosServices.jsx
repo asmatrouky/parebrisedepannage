@@ -66,15 +66,16 @@ export default function NosServices() {
             </p>
           </div>
 
+          {/* SECTION MODIFIÉE */}
           <div className="service-card">
             <div className="image-container">
-              <img src="/img/4.png" alt="Toit ouvrant" />
+              <img src="/img/4.png" alt="Déflecteur / Custode" />
             </div>
-            <h3>Réparation & remplacement toit ouvrant</h3>
+            <h3>Déflecteur & Custode</h3>
             <p>
-              Prise en charge des toits ouvrants : vitrages, mécanismes,
-              infiltrations… Une intervention soignée pour retrouver un système
-              fonctionnel et sécurisé.
+              Intervention sur les déflecteurs et vitres custodes : remplacement
+              rapide, ajustement précis et vitrage homologué pour garantir
+              sécurité et esthétique d’origine.
             </p>
           </div>
 

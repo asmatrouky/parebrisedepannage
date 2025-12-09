@@ -288,7 +288,7 @@ body {
   background-color: var(--color-primary);
   color: white;
   border: none;
-  padding: 15px 30px;
+  padding: 12px 30px;
   border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
@@ -425,8 +425,6 @@ body {
   }
 
   .navbar-mobile-rdv-btn {
-    /* Assure que le bouton est affiché sur mobile */
-    display: block !important;
     /* Réduit le padding pour qu'il soit plus compact, si nécessaire */
     padding: 7px 14px;
     font-size: 12px;
@@ -726,6 +724,10 @@ align-items: center;
   min-width: 100% !important;
   }
 
+  .content-dep {
+  align-items: center;
+}
+
 
 .btn-booking-submit
 {
@@ -750,6 +752,7 @@ width: 100% !important;
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 0px;
+  
 }
 
   .depannage-hero-container {
@@ -778,6 +781,12 @@ width: 100% !important;
     line-height: 130%;
   }
 
+  .depannage-hero-container h1 {
+    font-size: 2.2em;
+    width: 100%;
+    line-height: 130%;
+    text-align: center;
+  }
   .hero-container p {
     padding-top: 10px;
     font-size: 0.9em;
@@ -786,6 +795,8 @@ width: 100% !important;
 
   .depannage-hero-container p {
     width: 98%;
+        text-align: center;
+
   }
 
   .buttons {
@@ -970,7 +981,7 @@ width: 100% !important;
   .hero-widgets-container {
     flex-direction: column;
     margin-top: -30vh;
-      width: 90%;
+      width: 85%;
 
   }
   

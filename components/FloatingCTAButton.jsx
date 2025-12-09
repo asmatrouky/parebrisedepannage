@@ -7,7 +7,7 @@ const FloatingCTAButton = () => {
 
   // Fonction simple pour déclencher l'appel
   const handleCall = () => {
-    window.location.href = 'tel:0102020202';
+    window.location.href = 'tel:0753350012';
   };
 
   return (
