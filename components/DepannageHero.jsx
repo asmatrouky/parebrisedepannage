@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Phone, Calendar, Headset } from "lucide-react";
+import { Calendar, Headset } from "lucide-react";
 
 export default function DepannageHero() {
   const [formData, setFormData] = useState({
@@ -11,6 +11,9 @@ export default function DepannageHero() {
     date: "",
     hour: "",
   });
+
+  // Pour Safari / iPhone : astuce type text -> date
+  const [dateInputType, setDateInputType] = useState("text");
 
   const handleChange = (e) => {
     setFormData({
@@ -43,6 +46,7 @@ export default function DepannageHero() {
         date: "",
         hour: "",
       });
+      setDateInputType("text"); // on remet l’état visuel du placeholder
     } catch (err) {
       console.error("Erreur réseau :", err);
       alert("Erreur lors de l’envoi du formulaire.");
@@ -66,7 +70,7 @@ export default function DepannageHero() {
               immédiat par téléphone ou par mail.
             </p>
 
-             <div className="buttons">
+            <div className="buttons">
               <button className="button-primary">
                 <i className="fa-solid fa-phone"></i>&nbsp;
                 07 53 35 00 12
@@ -98,6 +102,7 @@ export default function DepannageHero() {
                 name="phone"
                 placeholder="Téléphone"
                 className="input-field"
+                inputMode="tel" // clavier numérique iPhone
                 onChange={handleChange}
                 value={formData.phone}
                 required
@@ -114,15 +119,24 @@ export default function DepannageHero() {
             </div>
 
             <div className="form-row-dep">
+              {/* Champ date compatible iPhone / Safari avec placeholder */}
               <input
-                type="date"
+                type={dateInputType}
                 name="date"
+                placeholder="Date souhaitée"
                 className="input-field"
+                onFocus={() => setDateInputType("date")}
+                onBlur={(e) => {
+                  if (!e.target.value) {
+                    setDateInputType("text");
+                  }
+                }}
                 onChange={handleChange}
                 value={formData.date}
                 required
               />
 
+              {/* Sélection des créneaux horaires jusqu'à 22h */}
               <select
                 name="hour"
                 className="input-field"
@@ -130,6 +144,9 @@ export default function DepannageHero() {
                 value={formData.hour}
                 required
               >
+                <option value="" disabled>
+                  Sélectionner un créneau
+                </option>
                 <option value="08:00">08:00</option>
                 <option value="08:30">08:30</option>
                 <option value="09:00">09:00</option>
