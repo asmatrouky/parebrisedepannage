@@ -116,8 +116,6 @@ export default function DepannageHero() {
               />
             </div>
 
-            <div className="form-row-dep">
-              {/* Date avec placeholder simulé */}
               <input
                 type="date"
                 name="date"
@@ -128,7 +126,6 @@ export default function DepannageHero() {
                 required
               />
 
-              {/* Heure imposée format HH:MM */}
               <input
                 type="time"
                 name="hour"
@@ -143,7 +140,6 @@ export default function DepannageHero() {
                 <Calendar size={18} style={{ marginRight: "8px" }} />
                 Réserver
               </button>
-            </div>
           </form>
         </div>
 
