@@ -586,8 +586,8 @@ Si le SVG est trop bas ou trop haut, vous pouvez ajuster son conteneur.
 
 .depannage-hero-container{
   /* Style spécifique pour le remorquage */
-  height: 80vh;
-  max-height: 700px;
+  height: 90vh;
+  max-height: 750px;
   width: 100%;
   background-image: url('/img/remorquage.jpg');
   background-color: #1a1a1a;
@@ -843,7 +843,7 @@ width: 100% !important;
 .hero-widgets-container {
   display: flex;
   gap: 20px;
-  margin-top: -100px;
+  margin-top: -12vh;
   width: 100%;
   max-width: 1200px;
   align-items: stretch; /* Les boîtes auront la même hauteur */
@@ -882,7 +882,6 @@ width: 100% !important;
 
 .form-row-dep {
   display: flex;
-  /* FORCE 3 ÉLÉMENTS PAR LIGNE SUR DESKTOP */
   grid-template-columns: 1fr 1fr 1fr; 
   gap: 15px; 
 }
@@ -976,11 +975,37 @@ width: 100% !important;
   white-space: nowrap;
 }
 
-/* --- Responsive Mobile --- */
 @media (max-width: 768px) {
   .hero-widgets-container {
     flex-direction: column;
     margin-top: -30vh;
+      width: 85%;
+
+  }
+  .content-dep .buttons button
+{
+ max-width: 100%;
+}
+  .form-row-dep {
+    display: flex;
+    flex-direction: column;
+  }
+  .input-field {
+  width: 100%;
+  }
+  
+  .booking-widget, .call-widget {
+    width: 100%;
+  }
+}
+
+
+
+/* --- Responsive Mobile --- */
+@media (max-width: 400px) {
+  .hero-widgets-container {
+    flex-direction: column;
+    margin-top: -20vh;
       width: 85%;
 
   }

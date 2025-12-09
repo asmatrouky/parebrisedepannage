@@ -65,6 +65,13 @@ export default function DepannageHero() {
               remorquage 24/7 dans toute la France. Intervention rapide et devis
               immédiat par téléphone ou par mail.
             </p>
+
+            <div className="buttons">
+              <button className="button-primary" >
+                <i className="fa-solid fa-phone"></i>&nbsp;
+                07 53 35 00 12
+              </button>
+            </div>
           </div>
         </div>
       </div>
