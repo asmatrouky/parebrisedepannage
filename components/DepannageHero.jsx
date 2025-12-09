@@ -52,12 +52,6 @@ export default function DepannageHero() {
   return (
     <section className="depannage-hero-section">
 
-      {/* STYLE pour placeholder sur input type="date" */}
-      <style>{`
-        .date-placeholder:invalid {
-          color: #9ca3af; /* gris tailwind */
-        }
-      `}</style>
 
       <div className="depannage-hero-container">
         <div className="content-wrapper">
@@ -127,7 +121,7 @@ export default function DepannageHero() {
               <input
                 type="date"
                 name="date"
-                className="input-field date-placeholder"
+                className="input-field"
                 placeholder="Choisir une date"
                 onChange={handleChange}
                 value={formData.date}
@@ -139,6 +133,7 @@ export default function DepannageHero() {
                 type="time"
                 name="hour"
                 className="input-field"
+                placeholder="Choisir une heure"
                 onChange={handleChange}
                 value={formData.hour}
                 required
