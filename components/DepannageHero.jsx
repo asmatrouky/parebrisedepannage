@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { Phone, Calendar, Headset } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Calendar, Headset } from "lucide-react";
 
 export default function DepannageHero() {
   const [formData, setFormData] = useState({
@@ -11,6 +11,16 @@ export default function DepannageHero() {
     date: "",
     hour: "",
   });
+
+  const [isIOS, setIsIOS] = useState(false);
+
+  // Détecter iPhone / iPad (Safari mobile)
+  useEffect(() => {
+    if (typeof navigator !== "undefined") {
+      const ua = navigator.userAgent || navigator.vendor || "";
+      setIsIOS(/iPad|iPhone|iPod/.test(ua));
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -30,7 +40,6 @@ export default function DepannageHero() {
       });
 
       if (!res.ok) {
-        console.error("Erreur API :", await res.text());
         alert("Erreur lors de l’envoi du formulaire.");
         return;
       }
@@ -44,52 +53,57 @@ export default function DepannageHero() {
         hour: "",
       });
     } catch (err) {
-      console.error("Erreur réseau :", err);
-      alert("Erreur lors de l’envoi du formulaire.");
+      alert("Erreur réseau.");
+      console.error(err);
     }
   };
 
   return (
     <section className="depannage-hero-section">
+
+      {/* STYLE pour placeholder iOS */}
+      <style>{`
+        .ios-placeholder::placeholder {
+          color: #b3b3b3;
+        }
+      `}</style>
+
       <div className="depannage-hero-container">
         <div className="content-wrapper">
           <div className="content-dep">
-            <div className="promo-tag">
-              Dépannage et Remorquage professionnel
-            </div>
+            <div className="promo-tag">Dépannage et Remorquage professionnel</div>
 
             <h1>Remorquage Auto Rapide Paris & Île-de-France</h1>
 
             <p>
               Panne ou accident ? Trouvez un professionnel du dépannage et du
-              remorquage 24/7 dans toute la France. Intervention rapide et devis
-              immédiat par téléphone ou par mail.
+              remorquage 24/7 dans toute la France.
             </p>
 
             <div className="buttons">
-              <button className="button-primary" >
-                <i className="fa-solid fa-phone"></i>&nbsp;
-                07 53 35 00 12
-              </button>
+              <a href="tel:0753350012" className="button-primary">
+                <i className="fa-solid fa-phone"></i>&nbsp;07 53 35 00 12
+              </a>
             </div>
           </div>
         </div>
       </div>
 
       <div className="hero-widgets-container">
-        {/* FORMULAIRE DE RÉSERVATION */}
         <div className="widget-box booking-widget">
-          <h3> Réserver une intervention </h3>
+          <h3>Réserver une intervention</h3>
 
           <form className="booking-form" onSubmit={handleSubmit}>
+
+            {/* Ligne nom / téléphone / email */}
             <div className="form-row-dep">
               <input
                 type="text"
                 name="name"
                 placeholder="Nom"
                 className="input-field"
-                onChange={handleChange}
                 value={formData.name}
+                onChange={handleChange}
                 required
               />
 
@@ -98,8 +112,8 @@ export default function DepannageHero() {
                 name="phone"
                 placeholder="Téléphone"
                 className="input-field"
-                onChange={handleChange}
                 value={formData.phone}
+                onChange={handleChange}
                 required
               />
 
@@ -108,28 +122,38 @@ export default function DepannageHero() {
                 name="email"
                 placeholder="Email"
                 className="input-field"
-                onChange={handleChange}
                 value={formData.email}
+                onChange={handleChange}
               />
             </div>
 
+            {/* Ligne date / heure / bouton */}
             <div className="form-row-dep">
+
+              {/* DATE – adaptatif iPhone */}
               <input
-                type="date"
                 name="date"
-                placeholder="Date"
-                className="input-field"
-                onChange={handleChange}
+                className={`input-field ${isIOS ? "ios-placeholder" : ""}`}
                 value={formData.date}
+                onChange={handleChange}
+                required
+                type={isIOS ? "text" : "date"}
+                placeholder={isIOS ? "Date (JJ/MM/AAAA)" : undefined}
+                inputMode={isIOS ? "numeric" : undefined}
+                pattern={isIOS ? "\\d{2}/\\d{2}/\\d{4}" : undefined}
               />
 
+              {/* HEURE – adaptatif iPhone */}
               <input
-                type="text"
                 name="hour"
-                placeholder="Heure"
-                className="input-field"
-                onChange={handleChange}
+                className={`input-field ${isIOS ? "ios-placeholder" : ""}`}
                 value={formData.hour}
+                onChange={handleChange}
+                required
+                type={isIOS ? "text" : "time"}
+                placeholder={isIOS ? "Heure (HH:MM)" : undefined}
+                inputMode={isIOS ? "numeric" : undefined}
+                pattern={isIOS ? "^\\d{2}:\\d{2}$" : undefined}
               />
 
               <button className="btn-booking-submit" type="submit">
@@ -140,7 +164,7 @@ export default function DepannageHero() {
           </form>
         </div>
 
-        {/* BLOC APPEL URGENT */}
+        {/* APPEL URGENT */}
         <div className="widget-box call-widget">
           <h3>Urgence ? Appelez-nous !</h3>
 
@@ -155,6 +179,7 @@ export default function DepannageHero() {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
