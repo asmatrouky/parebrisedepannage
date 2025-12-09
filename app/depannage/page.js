@@ -6,7 +6,7 @@ import FaqDepannage from '@/components/FaqDepannage';
 import Presentation from '@/components/Presentation';
 import PrendreRDV from '@/components/PrendreRdv';
 import PourquoiNous from  '@/components/pourquoiNous';
-
+import FloatingCTAButton from '@/components/FloatingCTAButton';
 
 export const metadata = {
   title: 'Remorquage & Dépannage | Pare-Brise Dépannage',
@@ -19,46 +19,52 @@ export default function DepannagePage() {
     <>
         <DepannageHero/>
 
-          <Presentation
-              tag="Assurances partenaires"
-              title="Dépannage et remorquage auto"
-              description="Un imprévu sur la route ? On intervient sans attendre ! Ne laissez pas une panne gâcher votre journée. Avec Pare-Brise & Dépannage France, bénéficiez d’une assistance immédiate, efficace et à prix ultra-compétitifs."
-              buttonLabel="Appelez-nous ! 🚨"
-              buttonHref="/pr"
-              imageSrc="/img/presentationdepannage.jpg"
-              imageAlt="Logos de nos assurances partenaires"
-              mobileImageFirst={false}
+         <ServicesSection
+  title="Interventions rapides & efficaces"
+  tag="Interventions"
+  intro="Notre équipe intervient rapidement pour tous types de situations : panne, remorquage, sortie de fourrière ou diagnostic sur place. Nous mettons tout en œuvre pour vous assister au plus vite, où que vous soyez."
+  columns={3}
+  services={[
+    {
+      image: "/img/depannage.jpg",
+      title: "Dépannage",
+      description:
+        "Intervention sur place pour les pannes courantes : batterie, crevaison, erreur carburant, petites réparations.",
+    },
+    {
+      image: "/img/remorquage2.jpg",
+      title: "Remorquage",
+      description:
+        "Transport sécurisé de votre véhicule vers un garage, votre domicile ou tout lieu de votre choix.",
+    },
+    {
+      image: "/img/fourriere.jpg",
+      title: "Sortie de fourrière",
+      description:
+        "Prise en charge complète pour récupérer votre véhicule et le ramener en toute sérénité.",
+    },
+    {
+      image: "/img/epave.jpg",
+      title: "Récupération d’épave",
+      description:
+        "Enlèvement rapide de véhicules hors d’usage avec certificat de destruction si nécessaire.",
+    },
+    {
+      image: "/img/crevaison.jpg",
+      title: "Intervention crevaison",
+      description:
+        "Remplacement de roue ou installation de la roue de secours pour reprendre la route rapidement.",
+    },
+    {
+      image: "/img/diagnostic.jpg",
+      title: "Diagnostic auto sur place",
+      description:
+        "Analyse rapide de l’origine de la panne afin de proposer la meilleure solution avant remorquage.",
+    },
+  ]}
+/>
 
-            />
 
-        <ServicesSection
-            title="Interventions rapides & efficaces"
-            tag="Interventions"
-            intro="Il n’est pas toujours nécessaire de remorquer un véhicule. Parfois, une intervention sur place suffit. C’est là que notre service de dépannage entre en jeu : des solutions immédiates pour les pannes les plus courantes."
-            columns={3}
-            services={[
-              {
-                image: "/img/batterie.jpg",
-                title: "Panne de batterie",
-                description:
-                  "Diagnostic sur place et remplacement si nécessaire pour repartir sans attendre.",
-              },
-              {
-                image: "/img/pneu.jpg",
-                title: "Crevaison de pneu",
-                description:
-                  "Réparation ou changement sur place selon la situation, intervention rapide partout.",
-              },
-              {
-                image: "/img/cle.jpg",
-                title: "Portière verrouillée",
-                description:
-                  "Ouverture rapide et sans dommages de votre véhicule en cas de clé oubliée à l’intérieur.",
-              },
-            ]}
-          />
-
-<PourquoiNous />
     <StepsSection
         tag="Dépanange & remorquage 24/7"
         title="Comment ça marche ?"
@@ -88,6 +94,41 @@ export default function DepannagePage() {
         ]}
       />
 
+
+       <ServicesSection
+  title="Dépannage sur place"
+  tag="Interventions"
+  intro="La plupart des pannes peuvent être résolues directement sur place, sans remorquage. Notre équipe intervient rapidement pour remettre votre véhicule en état de rouler grâce à des solutions immédiates et adaptées à chaque situation."
+  columns={3}
+  services={[
+    {
+      image: "/img/batterie.jpg",
+      title: "Panne de batterie",
+      description:
+        "Démarrage sur place, test de batterie et remplacement si nécessaire pour repartir instantanément.",
+    },
+    {
+      image: "/img/pneu.jpg",
+      title: "Crevaison de pneu",
+      description:
+        "Changement de roue ou mise en place de la roue de secours pour reprendre la route rapidement.",
+    },
+    {
+      image: "/img/cle.jpg",
+      title: "Portière verrouillée",
+      description:
+        "Ouverture professionnelle et sans dégâts de votre véhicule en cas de clé bloquée à l’intérieur.",
+    },
+  ]}
+/>
+
+        
+
+
+
+      <PourquoiNous />
+
+
       <Presentation
             tag="Assurances partenaires"
             title="Nos assurances partenaires"
@@ -109,7 +150,7 @@ export default function DepannagePage() {
     />
 
             <FaqDepannage />
-      
+      <FloatingCTAButton />
     </>
     
    

@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 
+
 export default function Hero() {
   const handleClick = () => {
     if (typeof window !== 'undefined' && window.openAppointmentForm) {
@@ -10,18 +11,42 @@ export default function Hero() {
     }
   };
 
+
+
   return (
     <section className="hero-section">
       <div className="hero-container">
         <div className="content-wrapper">
           <div className="content">
             <div className="promo-tag">
-              Un pare-brise remplacé = Un cadeau offert
+              Pare-brise remplacé = Franchise Offerte
             </div>
 
-            <h1>
-              Faites remplacer votre pare-brise et recevez jusqu’à 500€
-            </h1>
+  <h1 className="relative inline-block leading-tight">
+  Installation pare-brise avec reprise jusqu’à{' '}
+  <span className="relative inline-block">
+    500€
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 500 150"
+      preserveAspectRatio="none"
+      className="underline-svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M14.4,111.6c0,0,202.9-33.7,471.2,0c0,0-194-8.9-397.3,24.7c0,0,141.9-5.9,309.2,0"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="10"
+        strokeLinecap="round"
+        style={{ animationPlayState: "running" }}
+      />
+    </svg>
+  </span>
+</h1>
+
+
+
 
             <p>
               Remplacez votre pare-brise en toute simplicité : intervention en 1 heure,
@@ -35,7 +60,7 @@ export default function Hero() {
               </button>
             </div>
              
-            {/* --- Nouvelle section d'assurance ajoutée ici --- */}
+            {/* --- Reste du contenu inchangé... --- */}
             <div className="insurance-section">
               <p className="collaboration-text">
                 Nous collaborons avec la plupart des grandes compagnies d’assurance :
@@ -52,8 +77,6 @@ export default function Hero() {
                 </span>
               </div>
             </div>
-            {/* ------------------------------------------------ */}
-
           </div>
         </div>
       </div>

@@ -29,9 +29,9 @@ export default function Footer() {
           <div className="footer-column footer-info">
             <Link href="/" className="footer-logo-link">
               <Image 
-                src="/img/logo2.png" 
+                src="/img/logofn.png" 
                 alt="Logo du site" 
-                width={150} 
+                width={180} 
                 height={50} 
               />
             </Link>
