@@ -114,7 +114,6 @@ export default function DepannageHero() {
             </div>
 
             <div className="form-row-dep">
-              {/* 📅 Date : calendrier natif */}
               <input
                 type="date"
                 name="date"
@@ -124,7 +123,6 @@ export default function DepannageHero() {
                 required
               />
 
-              {/* ⏰ Créneaux horaires */}
               <select
                 name="hour"
                 className="input-field"
