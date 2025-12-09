@@ -51,6 +51,14 @@ export default function DepannageHero() {
 
   return (
     <section className="depannage-hero-section">
+
+      {/* STYLE pour placeholder sur input type="date" */}
+      <style>{`
+        .date-placeholder:invalid {
+          color: #9ca3af; /* gris tailwind */
+        }
+      `}</style>
+
       <div className="depannage-hero-container">
         <div className="content-wrapper">
           <div className="content-dep">
@@ -67,7 +75,7 @@ export default function DepannageHero() {
             </p>
 
             <div className="buttons">
-              <button className="button-primary" >
+              <button className="button-primary">
                 <i className="fa-solid fa-phone"></i>&nbsp;
                 07 53 35 00 12
               </button>
@@ -77,6 +85,7 @@ export default function DepannageHero() {
       </div>
 
       <div className="hero-widgets-container">
+
         {/* FORMULAIRE DE RÉSERVATION */}
         <div className="widget-box booking-widget">
           <h3> Réserver une intervention </h3>
@@ -114,21 +123,25 @@ export default function DepannageHero() {
             </div>
 
             <div className="form-row-dep">
+              {/* Date avec placeholder simulé */}
               <input
                 type="date"
                 name="date"
-                className="input-field"
+                className="input-field date-placeholder"
+                placeholder="Choisir une date"
                 onChange={handleChange}
                 value={formData.date}
+                required
               />
 
+              {/* Heure imposée format HH:MM */}
               <input
-                type="text"
+                type="time"
                 name="hour"
-                placeholder="Heure"
                 className="input-field"
                 onChange={handleChange}
                 value={formData.hour}
+                required
               />
 
               <button className="btn-booking-submit" type="submit">

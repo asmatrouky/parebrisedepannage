@@ -985,6 +985,7 @@ width: 100% !important;
   .content-dep .buttons button
 {
  max-width: 100%;
+ font-size: 1em;
 }
   .form-row-dep {
     display: flex;
@@ -1005,7 +1006,7 @@ width: 100% !important;
 @media (max-width: 400px) {
   .hero-widgets-container {
     flex-direction: column;
-    margin-top: -20vh;
+    margin-top: -25vh;
       width: 85%;
 
   }
