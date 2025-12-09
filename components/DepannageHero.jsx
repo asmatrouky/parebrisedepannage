@@ -51,8 +51,6 @@ export default function DepannageHero() {
 
   return (
     <section className="depannage-hero-section">
-
-
       <div className="depannage-hero-container">
         <div className="content-wrapper">
           <div className="content-dep">
@@ -69,7 +67,7 @@ export default function DepannageHero() {
             </p>
 
             <div className="buttons">
-              <button className="button-primary">
+              <button className="button-primary" >
                 <i className="fa-solid fa-phone"></i>&nbsp;
                 07 53 35 00 12
               </button>
@@ -79,7 +77,6 @@ export default function DepannageHero() {
       </div>
 
       <div className="hero-widgets-container">
-
         {/* FORMULAIRE DE RÉSERVATION */}
         <div className="widget-box booking-widget">
           <h3> Réserver une intervention </h3>
@@ -116,30 +113,30 @@ export default function DepannageHero() {
               />
             </div>
 
+            <div className="form-row-dep">
               <input
                 type="date"
                 name="date"
+                placeholder="Date"
                 className="input-field"
-                placeholder="Choisir une date"
                 onChange={handleChange}
                 value={formData.date}
-                required
               />
 
               <input
-                type="time"
+                type="text"
                 name="hour"
+                placeholder="Heure"
                 className="input-field"
-                placeholder="Choisir une heure"
                 onChange={handleChange}
                 value={formData.hour}
-                required
               />
 
               <button className="btn-booking-submit" type="submit">
                 <Calendar size={18} style={{ marginRight: "8px" }} />
                 Réserver
               </button>
+            </div>
           </form>
         </div>
 
