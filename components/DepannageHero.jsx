@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Calendar, Headset } from "lucide-react";
 
 export default function DepannageHero() {
@@ -11,18 +11,6 @@ export default function DepannageHero() {
     date: "",
     hour: "",
   });
-
-  const [isIOS, setIsIOS] = useState(false);
-
-  // 🔍 Détection simple d'iOS (iPhone / iPad) pour gérer le champ date
-  useEffect(() => {
-    if (typeof navigator !== "undefined") {
-      const ua = navigator.userAgent || navigator.vendor || window.opera;
-      if (/iPad|iPhone|iPod/.test(ua)) {
-        setIsIOS(true);
-      }
-    }
-  }, []);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -77,6 +65,7 @@ export default function DepannageHero() {
               remorquage 24/7 dans toute la France. Intervention rapide et devis
               immédiat par téléphone ou par mail.
             </p>
+
             <div className="buttons">
               <button className="button-primary">
                 <i className="fa-solid fa-phone"></i>&nbsp;
@@ -88,7 +77,7 @@ export default function DepannageHero() {
       </div>
 
       <div className="hero-widgets-container">
-        {/* FORMULAIRE DE RÉSERVATION */}
+        {/* FORMULAIRE */}
         <div className="widget-box booking-widget">
           <h3> Réserver une intervention </h3>
 
@@ -125,30 +114,16 @@ export default function DepannageHero() {
             </div>
 
             <div className="form-row-dep">
-              {/* 📅 Champ date : type="date" normal sauf sur iOS */}
-              {isIOS ? (
-                <input
-                  type="text"
-                  name="date"
-                  placeholder="Date souhaitée (JJ/MM/AAAA)"
-                  className="input-field"
-                  onChange={handleChange}
-                  value={formData.date}
-                  required
-                  inputMode="date"
-                />
-              ) : (
-                <input
-                  type="date"
-                  name="date"
-                  className="input-field"
-                  onChange={handleChange}
-                  value={formData.date}
-                  required
-                />
-              )}
+              {/* 📅 Calendrier natif mobile + desktop */}
+              <input
+                type="date"
+                name="date"
+                className="input-field"
+                onChange={handleChange}
+                value={formData.date}
+                required
+              />
 
-              {/* Sélection des créneaux 08:00 → 22:00 */}
               <select
                 name="hour"
                 className="input-field"
@@ -192,7 +167,7 @@ export default function DepannageHero() {
           </form>
         </div>
 
-        {/* BLOC APPEL URGENT */}
+        {/* BLOC URGENCE */}
         <div className="widget-box call-widget">
           <h3>Urgence ? Appelez-nous !</h3>
 
