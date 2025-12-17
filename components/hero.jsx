@@ -54,8 +54,8 @@ export default function Hero() {
               En bonus, chaque remplacement vous donne droit à un cadeau offert.
             </p>
 
-            <div className="buttons">
-              <button className="button-primary" onClick={handleClick}>
+            <div className="buttons" onClick={handleClick}>
+              <button className="button-primary" >
                 PRENEZ RENDEZ-VOUS
               </button>
             </div>
