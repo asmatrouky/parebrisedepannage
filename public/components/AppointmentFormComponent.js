@@ -923,8 +923,11 @@ class AppointmentFormComponent extends HTMLElement {
 customElements.define('appointment-form-component', AppointmentFormComponent);
 
 // Accès global pour l’ouvrir depuis la navbar
-window.openAppointmentForm = () => {
-  this.openAppointmentForm();
+window.openAppointmentForm = function () {
+	const formComponent = document.querySelector('appointment-form-component');
+	if (formComponent) {
+		formComponent.openAppointmentForm();
+	}
 };
 
 window.displayPanelFormCallback = function () {
