@@ -67,9 +67,11 @@ export default function DepannageHero() {
             </p>
 
             <div className="buttons">
-              <button className="button-primary">
+              <button href="tel:0753350012"  className="button-primary">
+                <a href="tel:0753350012" className="button-primary">
                 <i className="fa-solid fa-phone"></i>&nbsp;
                 07 53 35 00 12
+              </a>
               </button>
             </div>
           </div>
@@ -178,7 +180,7 @@ export default function DepannageHero() {
 
             <div className="call-text">
               <span className="sub-label">24/7 DÉPANNAGE URGENT</span>
-              <span className="phone-number">07 53 35 00 12</span>
+              <span className="phone-number" >07 53 35 00 12</span>
             </div>
           </div>
         </div>

@@ -1,28 +1,30 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 
-/**
- * Props possibles :
- * - tag: petit texte au-dessus du titre
- * - title: titre principal
- * - description: texte
- * - buttonLabel: texte du bouton
- * - buttonHref: lien du bouton
- * - imageSrc: chemin de l'image
- * - imageAlt: texte alternatif
- * - mobileImageFirst: true = image en 1er sur mobile, false = texte en 1er
- */
 export default function PresentationSection({
   tag = 'Expertise & Qualité',
   title = 'Experts pare-brise & vitrages',
-  description = 'Nos techniciens sont formés aux dernières techniques de pose et vous assurent un travail précis, sécurisé et conforme aux exigences constructeur. Chaque intervention est réalisée avec du matériel professionnel et des vitrages certifiés.',
+  description = 'Nos techniciens sont formés aux dernières techniques de pose...',
   buttonLabel = 'En savoir +',
-  buttonHref = '#',
-  buttonClass = "", // <--- nouvelle prop
+  buttonHref = null,
+  buttonClass = '',
   imageSrc = '/img/prsentation.jpg',
   imageAlt = 'Technicien remplaçant un pare-brise dans un centre spécialisé',
-  mobileImageFirst = false, // <--- contrôle l’ordre sur mobile
+  mobileImageFirst = false,
 }) {
+  const handleClick = (e) => {
+    // 👉 Cas formulaire (pas de lien)
+    if (!buttonHref) {
+      e.preventDefault();
+      if (typeof window !== 'undefined' && window.openAppointmentForm) {
+        window.openAppointmentForm();
+      }
+      return;
+    }
+  };
+
   return (
     <section className="presentation-section">
       <div
@@ -45,22 +47,24 @@ export default function PresentationSection({
         <div className="presentation-content">
           {tag && <div className="tag">{tag}</div>}
 
-          {title && (
-            <h2 className="sectiontitle_left">
-              {title}
-            </h2>
-          )}
+          {title && <h2 className="sectiontitle_left">{title}</h2>}
 
-          {description && (
-            <p className="intro-text_left">
-              {description}
-            </p>
-          )}
+          {description && <p className="intro-text_left">{description}</p>}
 
           {buttonLabel && (
-             <a href={buttonHref} className={`btn-rdv ${buttonClass}`}>
-              {buttonLabel}
-            </a>
+            buttonHref ? (
+              <a href={buttonHref} className={`btn-rdv ${buttonClass}`}>
+                {buttonLabel}
+              </a>
+            ) : (
+              <button
+                type="button"
+                className={`btn-rdv ${buttonClass}`}
+                onClick={handleClick}
+              >
+                {buttonLabel}
+              </button>
+            )
           )}
         </div>
       </div>
