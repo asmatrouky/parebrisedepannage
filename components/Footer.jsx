@@ -19,7 +19,6 @@ export default function Footer() {
     { label: 'Remorquage', href: '/depannage' },
   ];
 
-  // Liste brute des villes (copiée de votre demande)
   const rawCities = [
     "Évry-Courcouronnes", "Massy", "Palaiseau", "Savigny-sur-Orge", "Viry-Châtillon", 
     "Athis-Mons", "Draveil", "Corbeil-Essonnes", "Brétigny-sur-Orge", "Les Ulis", 
@@ -87,7 +86,6 @@ export default function Footer() {
     "Arrou", "Dampierre-sous-Brou", "Illiers-Combray", "Bonneval", "Chartres"
   ];
 
-  // Nettoyage : On retire les doublons et on trie par ordre alphabétique
   const uniqueCities = [...new Set(rawCities)].sort((a, b) => a.localeCompare(b));
 
   return (
@@ -96,7 +94,6 @@ export default function Footer() {
         
         <div className="footer-main-content">
           
-          {/* Bloc logo + description */}
           <div className="footer-column footer-info">
             <Link href="/" className="footer-logo-link">
               <Image 
@@ -114,19 +111,18 @@ export default function Footer() {
             </p>
 
             <div className="footer-socials">
-              <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+              <a href="https://www.facebook.com/miimoun.benbassou" target="_blank" aria-label="Facebook">
                 <i className="fa-brands fa-facebook-f"></i>
               </a>
-              <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+              <a href="https://www.instagram.com/parebrise_depan?igsh=cXE0cDA2bjFlM3Bj" target="_blank" aria-label="Instagram">
                 <i className="fa-brands fa-instagram"></i>
               </a>
-              <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+              <a href="https://www.tiktok.com/@parebrise.depan.fr?_r=1&_t=ZN-92J8ZFfFrkc" target="_blank" aria-label="LinkedIn">
                 <i className="fa-brands fa-tiktok"></i>
               </a>
             </div>
           </div>
           
-          {/* Bloc Vitrage */}
           <div className="footer-column footer-links-group">
             <h3 className="footer-title">Vitrage</h3>
             <ul className="footer-links-list">
@@ -138,7 +134,6 @@ export default function Footer() {
             </ul>
           </div>
           
-          {/* Bloc Dépannage */}
           <div className="footer-column footer-links-group">
             <h3 className="footer-title">Dépannage</h3>
             <ul className="footer-links-list">
@@ -151,8 +146,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* NOUVELLE SECTION : ZONES D'INTERVENTION */}
-        {/* Style inline pour la structure, à déplacer dans le CSS si nécessaire */}
         <div className="footer-locations" style={{ 
             marginTop: '20px', 
             paddingBottom: '20px', 
@@ -170,7 +163,6 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Bas de page */}
         <div className="footer-bottom">
           <p className="footer-copyright">
             © {currentYear} WebmaAgency. Tous droits réservés.

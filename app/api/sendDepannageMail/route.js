@@ -8,11 +8,10 @@ export async function POST(req) {
   try {
     const body = await req.json();
 
-    console.log("📩 Body reçu dans /api/sendDepannageMail :", body);
+    console.log(" Body reçu dans /api/sendDepannageMail :", body);
 
     const { name, phone, email, date, hour } = body;
 
-    // ✅ Validation minimale
     if (!name || !phone) {
       return NextResponse.json(
         { error: "Le nom et le téléphone sont obligatoires." },
@@ -20,10 +19,9 @@ export async function POST(req) {
       );
     }
 
-    // ✉️ ENVOI DE L’EMAIL
     await resend.emails.send({
       from: "Pare-Brise Dépannage <contact@parebrisedepannagefrance.com>",
-      to: process.env.EMAIL_TO, // ex: tonmail@gmail.com
+      to: process.env.EMAIL_TO,
       subject: "🚨 Nouvelle demande de dépannage urgent",
       html: `
         <h2>Nouvelle demande de dépannage</h2>
@@ -43,7 +41,7 @@ export async function POST(req) {
       { status: 200 }
     );
   } catch (error) {
-    console.error("❌ Erreur dans /api/sendDepannageMail :", error);
+    console.error("Erreur dans /api/sendDepannageMail :", error);
 
     return NextResponse.json(
       { error: "Erreur interne lors de l’envoi de l’email." },
