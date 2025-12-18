@@ -25,15 +25,19 @@ export default function RootLayout({ children }) {
           referrerPolicy="no-referrer" 
         />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-          <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17787265762">
-          </script>
-          <script>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17787265762"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'AW-17787265762');
-          </script>
+          `}
+        </Script>
       </head>
       <body className={poppins.className}>
         <Script
